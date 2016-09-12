@@ -1,0 +1,22 @@
+Problem 1: 
+
+Data Structures - a specialized format for organizing and storing data in computers. Applications with a large number of users such as Facebook and Google must use efficient data structures because of the massive amount of data they must store and process. 
+
+Problem 2: 
+
+Ada Lovelace - 
+	Lovelace was a gifted mathematician and one of the first women to be admitted into the Royal Astronomical Society.  Her notes on Babbage's analytical engine described the creation of code that could handle characters in addition to numbers and an early version of looping.  For this reason, Ada is considered by many to be the  first computer programmer. Her work received little acknowledgement during her lifetime, recieved many honors when it was rediscovered in the 1950's. In 1980, the USDD named a computer language, "Ada" in her honor. 
+	
+Grace Hopper -
+	Hopper was a programmer and a rear admiral in the US Navy. She recieved her education at Yale  where she was one of the first women to recieve a Ph.D. in mathematics. During World War II, she worked to programa Mark I computer at Harvard University. Later in her career, she led the team that developed the first compiler and precurser to COBOL. She was the first women to recieve the National Medal of Technlogy.
+	
+Problem 3: 
+
+	Compiled language (as opposed to interpreted language) is advantageouos because it can be executed much faster and optomised to work with target hardware. This is because compiled language is compiled into native code rather than being translated at run time (requiring less overhead). When efficiency is the main concern, it makes sense to have direct correspondence between the programmed code and the hardware operations performed by machine code. This way programmers are able to directly control the use of the CPU and memory. 
+	
+Problem 4:  
+
+Fanchao Meng
+fcmeng@udel.edu
+
+Problem 5
