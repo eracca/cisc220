@@ -55,33 +55,41 @@ void testCollatz(){
 }
 
 //Problem 3
-
+void swap(int *n1, int *n2){
+    int temp=*n1;
+    *n1=*n2; 
+    *n2=temp;
+}
 
 bool order(int *n1, int *n2, int *n3){
     bool ordered = true; 
-    int *temp; 
-    if (n1>n2){
+    int temp;
+    if (*n1>*n2){
         ordered=false;
-        *temp=*n1;
-        *n1=*n2; 
-        *n2=*temp;
+        swap(n1, n2);   
     }
-    if (n2>n3){
+    if (*n2>*n3){
         ordered=false;
-        *temp=*n2;
-        *n2=*n3;
-        *n3=*temp;
+        swap(n2,n3);
     }
-    if (n1>n3){
+    if (*n1>*n3){
         ordered=false;
-        *temp=*n1;
-        *n1=*n3;
-        *n3=*temp;
+        swap(n1,n3);
+    }
+    if (*n1>*n2){
+        ordered=false;
+        swap(n1, n2);   
     }
     return ordered;  
         
 
 }
+
+//Problem 4
+bool perfectNumber(int n){
+
+}
+
 
 int main(){
     /*
@@ -108,7 +116,6 @@ int main(){
     int x3 = rand()% 20;
     cout << x1 << " " << x2 << " " << x3 << endl;
     bool ordered =order(&x1,&x2,&x3);
-    cout <<ordered << endl;
     if (!ordered){
          cout << x1 << " " << x2 << " " << x3 << endl;
     }
