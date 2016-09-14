@@ -85,10 +85,46 @@ bool order(int *n1, int *n2, int *n3){
 
 }
 
+/*
 //Problem 4
 bool perfectNumber(int n){
 
 }
+*/
+
+//problem 6
+void randomizeArray(int *arr, int size){    
+    for (int i=0; i<size; i++){
+        arr[i] = rand()% 100 - 50;
+    }
+}
+
+//problem 6b
+void printArray(int *arr, int size){
+    for (int i=0; i<size; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl; 
+}
+
+//problem 8
+int findMin(int *arr, int size){
+    int min = arr[0];
+    for (int i=1; i<size; i++){
+        if (arr[i]<min){
+            min=arr[i];
+        }
+    }
+    return min;
+}
+
+//problem 10 waiting on class
+
+//problem 12
+void indexSum(
+
+
+
 
 
 int main(){
@@ -105,9 +141,7 @@ int main(){
 
     //problem 2b
     testCollatz(); 
-    return 0;
-    
-    */ 
+    return 0; 
 
     //problem 3
     srand(time(NULL)); //seeds random based  on time
@@ -119,4 +153,27 @@ int main(){
     if (!ordered){
          cout << x1 << " " << x2 << " " << x3 << endl;
     }
+
+    //problem 6
+    int size = rand()% 30 +20; 
+    int arr[size]; 
+    randomizeArray(&arr[0], size);
+
+    //problem 6b
+    printArray(&arr[0], size); 
+
+    //problem 8
+    cout << findMin(&arr[0], size) << endl;
+    */ 
+
+    //problem 12
+    int ***arr3 = NULL; 
+    int x = -1; 
+    int y = -1;
+    int z = -1; 
+
+
+
+
+
 }
