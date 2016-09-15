@@ -121,13 +121,44 @@ int findMin(int *arr, int size){
 //problem 10 waiting on class
 
 //problem 12
-void indexSum(
+void createMatrix(int*** & arr, int& x, int& y, int& z){
+    x=rand()%4 +2; 
+    y=rand()%4 +2; 
+    z=rand()%4 +2;
+    //allocate memory for the array
+    arr = new int **[x];
+    for (int i=0; i<x; i++){
+        arr[i]=new int *[y];
+        for (int j=0; j<y; j++){
+            arr[i][j]=new int[z]; 
+        }
+    }
+    //fill array with sum of indicies
+    for (int w=0; w<x; w++){
+        for (int h=0; h<y; h++){
+            for (int d=0; d<z; d++){
+                arr[w][h][d]=w+h+d;
+            }
+        }
+    }
+}
 
+void printMatrix(int*** arr,  int& x, int& y, int& z){
+    for (int i=0; i<x; i++){
+        for (int j=0; j<y; j++){
+            for (int k=0; k<z; k++){
+                cout << arr[i][j][k] << ", i:" << i << " j:" << j <<
+                 " k:" << k << endl; 
+            }
+        }
+    }
+}
 
 
 
 
 int main(){
+    srand(time(NULL)); //seeds random function with time
     /*
     //problem 1
     helloWorld();
@@ -144,7 +175,6 @@ int main(){
     return 0; 
 
     //problem 3
-    srand(time(NULL)); //seeds random based  on time
     int x1 = rand()% 20;
     int x2 = rand()% 20;
     int x3 = rand()% 20;
@@ -167,13 +197,17 @@ int main(){
     */ 
 
     //problem 12
-    int ***arr3 = NULL; 
+    int ***arr3=NULL; 
     int x = -1; 
     int y = -1;
     int z = -1; 
-
-
-
-
-
+    createMatrix(arr3, x, y, z); 
+    printMatrix(arr3, x, y, z); 
+    for (int i=0; i<x; i++){
+        for (int j=0; j<y; j++){
+            delete[] arr3[i][j];
+        }
+        delete[] arr3[i];
+    }
+    delete[] arr3;
 }
