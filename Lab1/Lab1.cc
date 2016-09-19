@@ -10,14 +10,27 @@ Allan Chandy
 
 using namespace std;
 
+int helloWorld();
+int collatz(int i);
+void testCollatz(); 
+void swap(int *n1, int *n2);
+bool order(int *n1, int *n2, int *n3);
+bool perfectNumber(int n, int d, int sum);
+void refSwap(int &n1, int &n2); 
+void randomizeArray(int *arr, int size);
+void printArray(int *arr, int size);    
+ 
 //Problem 1
 int helloWorld() {
+    //prints Hello World to the console
      cout << "Hello World" << endl;
      return 0;  
 } 
 
 //Problem 2
 int collatz(int n){
+    //carries out collatz process until number is 1
+    //returns the number of operations required
     int count =0;
     do {
         if (n%2==0){
@@ -33,6 +46,8 @@ int collatz(int n){
 
 //Problem 2b
 void testCollatz(){
+    //asks user to input two number,  tests Collatz Conjecture for all numbers
+    //in this range
     string input;
     cout << "Enter a positive natural number" << endl;
     cin >> input;
@@ -47,21 +62,23 @@ void testCollatz(){
     }
     for (int i=n1; i<n2; i++){
         int count;
-        count=collatz(i);
+        count=collatz(i); //test Collatz for numbers in range given by user
         cout << i << " , "<< count << endl;
         cout <<"Collatz Conjecture is still working" << endl;
     }
-    return; 
 }
 
 //Problem 3
 void swap(int *n1, int *n2){
+    //swaps n1 and n2
     int temp=*n1;
     *n1=*n2; 
     *n2=temp;
 }
 
 bool order(int *n1, int *n2, int *n3){
+    //check if three numbers are ordered, return true if they are
+    //order and  return false if they are not
     bool ordered = true; 
     int temp;
     if (*n1>*n2){
@@ -81,44 +98,66 @@ bool order(int *n1, int *n2, int *n3){
         swap(n1, n2);   
     }
     return ordered;  
-        
-
 }
 
 
 //Problem 4
 bool perfectNumber(int n, int d, int sum){
-    if(sum==n && d==n ){
+    //check if n is a perfect number   
+    if(sum==n && d==n ){//end condition for perfect number
         return true;
     }
-    else if(sum!=n && d==n){
+    else if(sum!=n && d==n){//end condition for not perfect 
         return false;
     }
     else{
         if (n%d==0){
-             return perfectNumber(n, d+1, sum+d);
+             return perfectNumber(n, d+1, sum+d);//d is a divisor, run again
         }
         else{
-            return perfectNumber(n,d+1, sum);
+            return perfectNumber(n,d+1, sum);//d is not a divisor, run again
         }
     }
 }
 
+//Problem 5
+void refSwap(int &n1, int &n2) {
+    //swap using call by reference
+    int temp = n1;
+    n1 = n2;
+    n2 = temp;
+}
 
 //problem 6
 void randomizeArray(int *arr, int size){    
+    //randomize an array given array and size
     for (int i=0; i<size; i++){
-        arr[i] = rand()% 100 - 50;
+        arr[i] = rand()% 100 - 50; //values between -50 and 50;
     }
 }
 
 //problem 6b
 void printArray(int *arr, int size){
+    //print array given array and size
     for (int i=0; i<size; i++){
         cout << arr[i] << " ";
     }
     cout << endl; 
 }
+
+//problem 7
+void reverseArray(int *arr, int size){
+    int temp; 
+    if (size%2 != 0){
+        size--; 
+    }
+    for (int i=0; i< (size/2);  i++){
+        temp=arr[i];
+        arr[i]=arr[size-i];
+        arr[size-i]=temp;
+    }
+}
+
 
 //problem 8
 int findMin(int *arr, int size){
@@ -193,6 +232,8 @@ int main(){
     /*
     //problem 1
     helloWorld();
+    */
+
 
     //problem 2
     string input;
@@ -204,6 +245,8 @@ int main(){
     //problem 2b
     testCollatz(); 
     return 0; 
+
+    /*
 
     //problem 3
     int x1 = rand()% 20;
@@ -234,7 +277,6 @@ int main(){
     //problem 8
     cout << findMin(&arr[0], size) << endl; 
 
-    */
 
     //problem10
     int sortSize = 5; 
@@ -243,9 +285,6 @@ int main(){
     printArray(&sortArr[0], sortSize); 
     cout<< "comparisons: " <<  lizSort(&sortArr[0],sortSize) << endl; 
     printArray(&sortArr[0], sortSize); 
-
-
-    /*
 
     //problem 12
     int ***arr3=NULL; 
