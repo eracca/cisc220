@@ -85,12 +85,25 @@ bool order(int *n1, int *n2, int *n3){
 
 }
 
-/*
-//Problem 4
-bool perfectNumber(int n){
 
+//Problem 4
+bool perfectNumber(int n, int d, int sum){
+    if(sum==n && d==n ){
+        return true;
+    }
+    else if(sum!=n && d==n){
+        return false;
+    }
+    else{
+        if (n%d==0){
+             return perfectNumber(n, d+1, sum+d);
+        }
+        else{
+            return perfectNumber(n,d+1, sum);
+        }
+    }
 }
-*/
+
 
 //problem 6
 void randomizeArray(int *arr, int size){    
@@ -118,7 +131,28 @@ int findMin(int *arr, int size){
     return min;
 }
 
-//problem 10 waiting on class
+//problem 10 NEED TESTS
+int lizSort(int *arr, int size){
+    int temp;
+    int m; 
+    int mindex; 
+    int comp=0; 
+    for (int i=0; i<size; i++, comp++){
+        m=arr[i];
+        mindex=i;  
+        for (int j=i; j<size; j++, comp++){
+            comp++; 
+            if (arr[j]< m){
+                m=arr[j];
+                mindex=j;
+            }
+        }
+        temp=arr[i];
+        arr[i]=m;
+        arr[mindex]=temp; 
+    }
+    return comp; 
+}
 
 //problem 12
 void createMatrix(int*** & arr, int& x, int& y, int& z){
@@ -154,9 +188,6 @@ void printMatrix(int*** arr,  int& x, int& y, int& z){
     }
 }
 
-
-
-
 int main(){
     srand(time(NULL)); //seeds random function with time
     /*
@@ -184,6 +215,14 @@ int main(){
          cout << x1 << " " << x2 << " " << x3 << endl;
     }
 
+    //problem 4
+    for (int i=3; i<30; i++){
+        cout << i << endl; 
+        cout << perfectNumber(i, 1, 0) << endl;
+    }
+
+    
+
     //problem 6
     int size = rand()% 30 +20; 
     int arr[size]; 
@@ -193,8 +232,20 @@ int main(){
     printArray(&arr[0], size); 
 
     //problem 8
-    cout << findMin(&arr[0], size) << endl;
-    */ 
+    cout << findMin(&arr[0], size) << endl; 
+
+    */
+
+    //problem10
+    int sortSize = 5; 
+    int sortArr[sortSize];
+    randomizeArray(&sortArr[0], sortSize); 
+    printArray(&sortArr[0], sortSize); 
+    cout<< "comparisons: " <<  lizSort(&sortArr[0],sortSize) << endl; 
+    printArray(&sortArr[0], sortSize); 
+
+
+    /*
 
     //problem 12
     int ***arr3=NULL; 
@@ -210,4 +261,5 @@ int main(){
         delete[] arr3[i];
     }
     delete[] arr3;
+    */
 }
