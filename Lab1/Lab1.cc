@@ -18,7 +18,8 @@ bool order(int *n1, int *n2, int *n3);
 bool perfectNumber(int n, int d, int sum);
 void refSwap(int &n1, int &n2); 
 void randomizeArray(int *arr, int size);
-void printArray(int *arr, int size);    
+void printArray(int *arr, int size);   
+void reverseArray(int *arr, int size);  
  
 //Problem 1
 int helloWorld() {
@@ -147,6 +148,7 @@ void printArray(int *arr, int size){
 
 //problem 7
 void reverseArray(int *arr, int size){
+    //revese array given array and size   
     int temp; 
     if (size%2 != 0){
         size--; 
@@ -193,6 +195,26 @@ int lizSort(int *arr, int size){
     return comp; 
 }
 
+//problem 11
+int* lowPass(int *arr, int size, int win){
+    int *arr2= new int[size]; 
+    int sum;
+    int side= (win-1)/2;
+    for (int i=0; i<side; i++){
+        arr2[i]=0;
+        arr2[size-i]=0;  
+    }
+    for (int i=side; i<(size-side); i++){
+        sum=0;
+        for (int j= -side; j<= side;j++){
+            sum+=arr[i+j];
+        }
+        arr2[i]=sum/win;
+    }
+    return arr2;
+}
+
+
 //problem 12
 void createMatrix(int*** & arr, int& x, int& y, int& z){
     x=rand()%4 +2; 
@@ -232,8 +254,6 @@ int main(){
     /*
     //problem 1
     helloWorld();
-    */
-
 
     //problem 2
     string input;
@@ -245,8 +265,6 @@ int main(){
     //problem 2b
     testCollatz(); 
     return 0; 
-
-    /*
 
     //problem 3
     int x1 = rand()% 20;
@@ -278,13 +296,33 @@ int main(){
     cout << findMin(&arr[0], size) << endl; 
 
 
-    //problem10
+    //problem 10
     int sortSize = 5; 
     int sortArr[sortSize];
     randomizeArray(&sortArr[0], sortSize); 
     printArray(&sortArr[0], sortSize); 
     cout<< "comparisons: " <<  lizSort(&sortArr[0],sortSize) << endl; 
     printArray(&sortArr[0], sortSize); 
+
+    */
+
+    //problem 11
+    int size=20; 
+    int noiseArr[size];
+    randomizeArray(&noiseArr[0], size); 
+    printArray(&noiseArr[0], size); 
+    int win= rand()% 4 +3;
+    if (win%2==0){
+        win++;
+    }
+    cout << "window: " << win << endl; 
+    int* filterArr=lowPass(&noiseArr[0], size, win);
+    printArray(&filterArr[0], size); 
+    delete [] filterArr; 
+
+    
+
+    /*
 
     //problem 12
     int ***arr3=NULL; 
