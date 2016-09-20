@@ -20,6 +20,8 @@ void refSwap(int &n1, int &n2);
 void randomizeArray(int *arr, int size);
 void printArray(int *arr, int size);   
 void reverseArray(int *arr, int size);  
+int findMin(int* arr, int size); 
+
  
 //Problem 1
 int helloWorld() {
@@ -163,6 +165,7 @@ void reverseArray(int *arr, int size){
 
 //problem 8
 int findMin(int *arr, int size){
+    //finds minimum value in an array
     int min = arr[0];
     for (int i=1; i<size; i++){
         if (arr[i]<min){
@@ -172,8 +175,24 @@ int findMin(int *arr, int size){
     return min;
 }
 
-//problem 10 NEED TESTS
+//problem 9
+int sumArray(int *arr, int size, int i){
+    //use recursion to sum the values in an array
+    if (i==size){
+        return arr[i];
+    }
+    else{
+        return sumArray(*arr, size, i+1);
+    }
+}
+
+
+//problem 10
 int lizSort(int *arr, int size){
+    //sort an array, return the number of comparisons necessary
+    //note: finding an average number of comparisons for a sort doesn't make sense since this sorting
+    //algorithm takes a constant number of comparisons for each array length.
+    //This particular sort is of order n^2 and is considered very low performance.
     int temp;
     int m; 
     int mindex; 
@@ -197,6 +216,7 @@ int lizSort(int *arr, int size){
 
 //problem 11
 int* lowPass(int *arr, int size, int win){
+    //filter an array with a window so that each value is the average of its window
     int *arr2= new int[size]; 
     int sum;
     int side= (win-1)/2;
@@ -251,11 +271,13 @@ void printMatrix(int*** arr,  int& x, int& y, int& z){
 
 int main(){
     srand(time(NULL)); //seeds random function with time
-    /*
+
     //problem 1
+    cout<< "problem 1" << endl; 
     helloWorld();
 
     //problem 2
+    cout<< "problem 2" << endl; 
     string input;
     cout << "Please enter a positive natural number"<< endl;
     cin >> input;
@@ -263,10 +285,12 @@ int main(){
     cout << collatz(n)<< endl; 
 
     //problem 2b
+    cout<< "problem 2b" << endl;
     testCollatz(); 
     return 0; 
 
     //problem 3
+    cout << "problem 3" << endl; 
     int x1 = rand()% 20;
     int x2 = rand()% 20;
     int x3 = rand()% 20;
@@ -277,26 +301,49 @@ int main(){
     }
 
     //problem 4
+    cout << "problem 4" << endl;
     for (int i=3; i<30; i++){
         cout << i << endl; 
         cout << perfectNumber(i, 1, 0) << endl;
     }
 
-    
+    //problem 5
+    cout << "problem 5" << endl;  
+    int x1 = rand()% 20;
+    int x2 = rand()% 20;
+    int x3 = rand()% 20;
+    cout << x1 << " " << x2 << " " << x3 << endl;
+    bool ordered =order(&x1,&x2,&x3);
+    if (!ordered){
+         cout << x1 << " " << x2 << " " << x3 << endl;
+    }
 
     //problem 6
+    cout << "problem 6" << endl; 
     int size = rand()% 30 +20; 
     int arr[size]; 
     randomizeArray(&arr[0], size);
-
+    
     //problem 6b
+    cout << "problem 6b" << endl;
+    printArray(&arr[0], size); 
+
+    //problem 7
+    cout << "problem 7" << endl;
+    reverseArray(&arr[0], size);
     printArray(&arr[0], size); 
 
     //problem 8
+    cout << "problem 8" << endl;
     cout << findMin(&arr[0], size) << endl; 
 
+    //problem 9
+    cout << "problem 9" << endl;
+    int sum=sumArray(&arr[0], size, 0);
+    cout << "sum: " << sum << endl; 
 
     //problem 10
+    cout << "problem 10" << endl; 
     int sortSize = 5; 
     int sortArr[sortSize];
     randomizeArray(&sortArr[0], sortSize); 
@@ -304,9 +351,8 @@ int main(){
     cout<< "comparisons: " <<  lizSort(&sortArr[0],sortSize) << endl; 
     printArray(&sortArr[0], sortSize); 
 
-    */
-
     //problem 11
+    cout << "problem 11" << endl; 
     int size=20; 
     int noiseArr[size];
     randomizeArray(&noiseArr[0], size); 
@@ -320,11 +366,8 @@ int main(){
     printArray(&filterArr[0], size); 
     delete [] filterArr; 
 
-    
-
-    /*
-
     //problem 12
+    cout << "problem 12" << endl;
     int ***arr3=NULL; 
     int x = -1; 
     int y = -1;
@@ -338,5 +381,4 @@ int main(){
         delete[] arr3[i];
     }
     delete[] arr3;
-    */
 }
