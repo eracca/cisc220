@@ -21,6 +21,11 @@ void randomizeArray(int *arr, int size);
 void printArray(int *arr, int size);   
 void reverseArray(int *arr, int size);  
 int findMin(int* arr, int size); 
+int sumArray(int* arr, int size);
+int lizSort(int* arr, int size);
+int* lowPass( int* arr, int size, int win);
+void createMatrix(int*** & arr, int& x, int& y, int& z);
+void printMatrix(int*** arr, int& x, int& y, int& z);
 
  
 //Problem 1
@@ -152,13 +157,17 @@ void printArray(int *arr, int size){
 void reverseArray(int *arr, int size){
     //revese array given array and size   
     int temp; 
-    if (size%2 != 0){
-        size--; 
+    int side;
+    if (size%2==0){
+        side=size/2;
     }
-    for (int i=0; i< (size/2);  i++){
+    else{
+        side=(size-1)/2;
+    }
+    for (int i=0; i<side;  i++){
         temp=arr[i];
-        arr[i]=arr[size-i];
-        arr[size-i]=temp;
+        arr[i]=arr[size-i-1];
+        arr[size-i-1]=temp;
     }
 }
 
@@ -176,14 +185,14 @@ int findMin(int *arr, int size){
 }
 
 //problem 9
-int sumArray(int *arr, int size, int i){
+int sumArray(int* arr, int size){
     //use recursion to sum the values in an array
-    if (i==size){
-        return arr[i];
+    if (size<0){
+        return arr[size]; 
     }
     else{
-        return sumArray(*arr, size, i+1);
-    }
+        return arr[size-1]+sumArray(arr, size-1); 
+    } 
 }
 
 
@@ -237,6 +246,7 @@ int* lowPass(int *arr, int size, int win){
 
 //problem 12
 void createMatrix(int*** & arr, int& x, int& y, int& z){
+    //create 3d matrix with the sum of the index values in each position
     x=rand()%4 +2; 
     y=rand()%4 +2; 
     z=rand()%4 +2;
@@ -259,6 +269,7 @@ void createMatrix(int*** & arr, int& x, int& y, int& z){
 }
 
 void printMatrix(int*** arr,  int& x, int& y, int& z){
+    //print a 3d matrix
     for (int i=0; i<x; i++){
         for (int j=0; j<y; j++){
             for (int k=0; k<z; k++){
@@ -286,8 +297,7 @@ int main(){
 
     //problem 2b
     cout<< "problem 2b" << endl;
-    testCollatz(); 
-    return 0; 
+    testCollatz();  
 
     //problem 3
     cout << "problem 3" << endl; 
@@ -309,11 +319,11 @@ int main(){
 
     //problem 5
     cout << "problem 5" << endl;  
-    int x1 = rand()% 20;
-    int x2 = rand()% 20;
-    int x3 = rand()% 20;
+    x1 = rand()% 20;
+    x2 = rand()% 20;
+    x3 = rand()% 20;
     cout << x1 << " " << x2 << " " << x3 << endl;
-    bool ordered =order(&x1,&x2,&x3);
+    ordered =order(&x1,&x2,&x3);
     if (!ordered){
          cout << x1 << " " << x2 << " " << x3 << endl;
     }
@@ -339,7 +349,11 @@ int main(){
 
     //problem 9
     cout << "problem 9" << endl;
-    int sum=sumArray(&arr[0], size, 0);
+    int sumSize=5;
+    int arr9[sumSize]; 
+    randomizeArray(&arr9[0], sumSize);
+    printArray(&arr9[0], sumSize);
+    int sum=sumArray(&arr9[0], sumSize);
     cout << "sum: " << sum << endl; 
 
     //problem 10
@@ -353,7 +367,7 @@ int main(){
 
     //problem 11
     cout << "problem 11" << endl; 
-    int size=20; 
+    size=20; 
     int noiseArr[size];
     randomizeArray(&noiseArr[0], size); 
     printArray(&noiseArr[0], size); 
