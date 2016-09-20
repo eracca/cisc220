@@ -27,7 +27,125 @@ int* lowPass( int* arr, int size, int win);
 void createMatrix(int*** & arr, int& x, int& y, int& z);
 void printMatrix(int*** arr, int& x, int& y, int& z);
 
- 
+
+int main(){
+    srand(time(NULL)); //seeds random function with time
+
+    //problem 1
+    cout<< "problem 1" << endl; 
+    helloWorld();
+
+    //problem 2
+    cout<< "problem 2" << endl; 
+    string input;
+    cout << "Please enter a positive natural number"<< endl;
+    cin >> input;
+    int n= atoi(input.c_str());
+    cout << collatz(n)<< endl; 
+
+    //problem 2b
+    cout<< "problem 2b" << endl;
+    testCollatz();  
+
+    //problem 3
+    cout << "problem 3" << endl; 
+    int x1 = rand()% 20;
+    int x2 = rand()% 20;
+    int x3 = rand()% 20;
+    cout << x1 << " " << x2 << " " << x3 << endl;
+    bool ordered =order(&x1,&x2,&x3);
+    if (!ordered){
+         cout << x1 << " " << x2 << " " << x3 << endl;
+    }
+
+    //problem 4
+    cout << "problem 4" << endl;
+    for (int i=3; i<30; i++){
+        cout << i << endl; 
+        cout << perfectNumber(i, 1, 0) << endl;
+    }
+
+    //problem 5
+    cout << "problem 5" << endl;  
+    x1 = rand()% 20;
+    x2 = rand()% 20;
+    x3 = rand()% 20;
+    cout << x1 << " " << x2 << " " << x3 << endl;
+    ordered =order(&x1,&x2,&x3);
+    if (!ordered){
+         cout << x1 << " " << x2 << " " << x3 << endl;
+    }
+
+    //problem 6
+    cout << "problem 6" << endl; 
+    int size = rand()% 30 +20; 
+    int arr[size]; 
+    randomizeArray(&arr[0], size);
+    
+    //problem 6b
+    cout << "problem 6b" << endl;
+    printArray(&arr[0], size); 
+
+    //problem 7
+    cout << "problem 7" << endl;
+    reverseArray(&arr[0], size);
+    printArray(&arr[0], size); 
+
+    //problem 8
+    cout << "problem 8" << endl;
+    cout << findMin(&arr[0], size) << endl; 
+
+    //problem 9
+    cout << "problem 9" << endl;
+    int sumSize=5;
+    int arr9[sumSize]; 
+    randomizeArray(&arr9[0], sumSize);
+    printArray(&arr9[0], sumSize);
+    int sum=sumArray(&arr9[0], sumSize);
+    cout << "sum: " << sum << endl; 
+
+    //problem 10
+    cout << "problem 10" << endl; 
+    int sortSize = 5; 
+    int sortArr[sortSize];
+    randomizeArray(&sortArr[0], sortSize); 
+    printArray(&sortArr[0], sortSize); 
+    cout<< "comparisons: " <<  lizSort(&sortArr[0],sortSize) << endl; 
+    printArray(&sortArr[0], sortSize); 
+
+    //problem 11
+    cout << "problem 11" << endl; 
+    size=20; 
+    int noiseArr[size];
+    randomizeArray(&noiseArr[0], size); 
+    printArray(&noiseArr[0], size); 
+    int win= rand()% 4 +3;
+    if (win%2==0){
+        win++;
+    }
+    cout << "window: " << win << endl; 
+    int* filterArr=lowPass(&noiseArr[0], size, win);
+    printArray(&filterArr[0], size); 
+    delete [] filterArr; 
+
+    //problem 12
+    cout << "problem 12" << endl;
+    int ***arr3=NULL; 
+    int x = -1; 
+    int y = -1;
+    int z = -1; 
+    createMatrix(arr3, x, y, z); 
+    printMatrix(arr3, x, y, z); 
+    for (int i=0; i<x; i++){
+        for (int j=0; j<y; j++){
+            delete[] arr3[i][j];
+        }
+        delete[] arr3[i];
+    }
+    delete[] arr3;
+}
+
+
 //Problem 1
 int helloWorld() {
     //prints Hello World to the console
@@ -278,121 +396,4 @@ void printMatrix(int*** arr,  int& x, int& y, int& z){
             }
         }
     }
-}
-
-int main(){
-    srand(time(NULL)); //seeds random function with time
-
-    //problem 1
-    cout<< "problem 1" << endl; 
-    helloWorld();
-
-    //problem 2
-    cout<< "problem 2" << endl; 
-    string input;
-    cout << "Please enter a positive natural number"<< endl;
-    cin >> input;
-    int n= atoi(input.c_str());
-    cout << collatz(n)<< endl; 
-
-    //problem 2b
-    cout<< "problem 2b" << endl;
-    testCollatz();  
-
-    //problem 3
-    cout << "problem 3" << endl; 
-    int x1 = rand()% 20;
-    int x2 = rand()% 20;
-    int x3 = rand()% 20;
-    cout << x1 << " " << x2 << " " << x3 << endl;
-    bool ordered =order(&x1,&x2,&x3);
-    if (!ordered){
-         cout << x1 << " " << x2 << " " << x3 << endl;
-    }
-
-    //problem 4
-    cout << "problem 4" << endl;
-    for (int i=3; i<30; i++){
-        cout << i << endl; 
-        cout << perfectNumber(i, 1, 0) << endl;
-    }
-
-    //problem 5
-    cout << "problem 5" << endl;  
-    x1 = rand()% 20;
-    x2 = rand()% 20;
-    x3 = rand()% 20;
-    cout << x1 << " " << x2 << " " << x3 << endl;
-    ordered =order(&x1,&x2,&x3);
-    if (!ordered){
-         cout << x1 << " " << x2 << " " << x3 << endl;
-    }
-
-    //problem 6
-    cout << "problem 6" << endl; 
-    int size = rand()% 30 +20; 
-    int arr[size]; 
-    randomizeArray(&arr[0], size);
-    
-    //problem 6b
-    cout << "problem 6b" << endl;
-    printArray(&arr[0], size); 
-
-    //problem 7
-    cout << "problem 7" << endl;
-    reverseArray(&arr[0], size);
-    printArray(&arr[0], size); 
-
-    //problem 8
-    cout << "problem 8" << endl;
-    cout << findMin(&arr[0], size) << endl; 
-
-    //problem 9
-    cout << "problem 9" << endl;
-    int sumSize=5;
-    int arr9[sumSize]; 
-    randomizeArray(&arr9[0], sumSize);
-    printArray(&arr9[0], sumSize);
-    int sum=sumArray(&arr9[0], sumSize);
-    cout << "sum: " << sum << endl; 
-
-    //problem 10
-    cout << "problem 10" << endl; 
-    int sortSize = 5; 
-    int sortArr[sortSize];
-    randomizeArray(&sortArr[0], sortSize); 
-    printArray(&sortArr[0], sortSize); 
-    cout<< "comparisons: " <<  lizSort(&sortArr[0],sortSize) << endl; 
-    printArray(&sortArr[0], sortSize); 
-
-    //problem 11
-    cout << "problem 11" << endl; 
-    size=20; 
-    int noiseArr[size];
-    randomizeArray(&noiseArr[0], size); 
-    printArray(&noiseArr[0], size); 
-    int win= rand()% 4 +3;
-    if (win%2==0){
-        win++;
-    }
-    cout << "window: " << win << endl; 
-    int* filterArr=lowPass(&noiseArr[0], size, win);
-    printArray(&filterArr[0], size); 
-    delete [] filterArr; 
-
-    //problem 12
-    cout << "problem 12" << endl;
-    int ***arr3=NULL; 
-    int x = -1; 
-    int y = -1;
-    int z = -1; 
-    createMatrix(arr3, x, y, z); 
-    printMatrix(arr3, x, y, z); 
-    for (int i=0; i<x; i++){
-        for (int j=0; j<y; j++){
-            delete[] arr3[i][j];
-        }
-        delete[] arr3[i];
-    }
-    delete[] arr3;
 }
