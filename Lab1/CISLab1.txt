@@ -20,3 +20,50 @@ Fanchao Meng
 fcmeng@udel.edu
 
 Problem 5
+
+atof - Converts a string to a floating-point number
+atoi - Converts a string to an integer
+abort - terminates the program abnormally
+exit - terminates program normally
+abs - returns absolute variable of a variable
+rand - returns a "random" number
+
+
+Problem 6:
+
+1. Value of x
+2. Address of x
+3. Address of x
+4. Address of a
+5. Value of x
+6.Address of z
+7. Adress of a
+8. Address of x
+9. Value of x
+
+Problem 6B:
+
+All of the Addresses change but the values stay the same. So the addresses for &x, a, &a, &z, z and *z change.
+
+Problem 7:
+
+a. int* x = new int[5];
+	x[0] = 3;
+	x[1] = 4;
+	x[2] = 7;
+	x[3] = 1;
+	x[4] = 5;
+b. cout << &x[0] << endl;
+c. cout << &x[2] << endl;
+d. int *y = x;
+e. cout << y[1] << endl;
+f. cout << &y[0] << endl;
+g. cout << &y << endl;
+h. int z = 72;  
+i. int *y = &z;
+
+Problem 7B:
+
+1.3
+2.4
+3.10
