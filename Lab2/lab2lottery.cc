@@ -16,8 +16,15 @@ Store makeStore(){
     Store shop;
     shop.storeID=rand()%100+1; 
     shop.numCust=rand()%10+1;
-
+    shop.numSold=0;  
+    Customer shop.customerList[numCust];
+    for (int i=0;  i< shop.numCust; i++){
+        shop.customerList[i]= makeCustomer;
+        shop.numSold+=shop.customerList[i].numTickets; 
+    }
+    return shop; 
 }
+
 Customer makeCustomer();
 void getWinners (int winners[]);
 void findWinners(Owner *owner, int *ls);
