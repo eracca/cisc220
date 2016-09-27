@@ -23,7 +23,6 @@ struct Owner{
 }
 
 Owner *makeOwner();
-Store *makeStOwner *makeOwner();
 Store makeStore();
 Customer makeCustomer();
 void getWinners (int winners[]);
