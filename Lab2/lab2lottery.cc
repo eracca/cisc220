@@ -28,5 +28,20 @@ Store makeStore(){
 Customer makeCustomer();
 void getWinners (int winners[]);
 void findWinners(Owner *owner, int *ls);
-int checkwin(int *nums, int *winners);
 
+int checkwin(int *nums, int *winners){
+    int match=0;  
+    for (int i=0; i<3; i++){
+        for (int j=0; j<3; j++){
+            if (nums[i]==winners[j]){
+                match++; 
+            }
+        }
+    }
+    return match;  
+}
+
+//check with TA
+void cleanUp(Owner *own){
+    delete own; 
+}
