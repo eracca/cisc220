@@ -4,7 +4,7 @@
 struct Customer{
     int custID;
     int numTickets;
-    int** lotterynums;
+    int** lotteryNums;
 }
 
 struct Store{

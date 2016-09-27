@@ -25,8 +25,35 @@ Store makeStore(){
     return shop; 
 }
 
-Customer makeCustomer();
-void getWinners (int winners[]);
+Customer makeCustomer(){
+    int r; 
+    Customer cust;
+    cust.custID=rand()%1000+1;
+    cust.numTickets=rand()%20+1;
+    cust.lotteryNums = new int*[cust.numTickets];
+    for (int i=0; i< cust.numTickets; i++){
+        cust.lotteryNums[i]=new int[3];
+        cust.lotteryNums[i][0]=rand()%10;
+        r =rand()%10;
+        do{
+            r =rand()%10; 
+        } while (r ==cust.lotteryNums[i][0]);
+        cust.lotteryNums[i][1]=rand()%10;
+        do{
+            r =rand()%10;
+        } while (r ==cust.lotteryNums[i][0] ||
+         r ==cust.lotteryNums[i][1]);
+        cust.lotteryNums[i][2]=rand; 
+        
+    }
+    return cust;
+}
+
+void getWinners (int winners[]){
+    //look up call 
+}
+    
+
 void findWinners(Owner *owner, int *ls);
 
 int checkwin(int *nums, int *winners){
