@@ -1,5 +1,5 @@
 #include "lab2lottery.hh"
-//hi
+
 Owner *makeOwner(){    
     Owner *own = new Owner;  
     own=>numStores= rand()&10+1;
@@ -50,11 +50,16 @@ Customer makeCustomer(){
 }
 
 void getWinners (int winners[]){
-    //look up call 
+	winners[0] = rand() % 10;
+	winners[1] = rand() % 10;
+	winners[2] = rand() % 10;
 }
     
 
-void findWinners(Owner *owner, int *ls);
+void findWinners(Owner *owner, int *ls) {
+
+
+}
 
 int checkwin(int *nums, int *winners){
     int match=0;  
