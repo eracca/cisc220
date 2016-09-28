@@ -1,5 +1,5 @@
 #include "lab2lottery.hh"
-
+//hi
 Owner *makeOwner(){    
     Owner *own = new Owner;  
     own=>numStores= rand()&10+1;
