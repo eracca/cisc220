@@ -53,10 +53,28 @@ void getWinners (int winners[]){
 	winners[0] = rand() % 10;
 	winners[1] = rand() % 10;
 	winners[2] = rand() % 10;
+	do {
+		winners[0] = rand() % 10;
+		winners[1] = rand() % 10;
+		winners[2] = rand() % 10;
+	}
+	while(winners[0] == winners[1] ||
+		  winners[0] == winners[2] ||
+		  winners[1] == winners[1])
 }
     
 
 void findWinners(Owner *owner, int *ls) {
+	for (int s=0; s < owner.numStores; s++) {
+		for (int c=0; c < owner.storeList[s].numCust; c++) {
+			for (int t = 0; t < owner.storeList[s].customerList[c].numTickets; t++) {
+				cout << checkwin(owner.StoreList[s].customerList[c].lotteryNums, getWinners(winner[3])) << endl;
+				cout << getWinners[3] << endl;
+				cout << owner.StoreList[s].storeID << endl;
+				cout << owner.StoreList[s].customerList[c].custID << endl;
+			}
+		}
+	}
 
 
 }
