@@ -11,7 +11,7 @@ Owner *makeOwner(){
     }
     return own;   
 }
-
+ 
 Store makeStore(){
     Store shop;
     shop.storeID=rand()%100+1; 
