@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #include "lab2lottery.hh"
 #include "lab2lottery.cc"
+<<<<<<< HEAD
 #include <iostream>
+=======
+>>>>>>> bdcb1ba13a9908966e07e546a0a2834789093fa4
 
 using namespace std; 
 int main() {
@@ -18,5 +21,6 @@ int main() {
     cout << "won with 2 numbers: " << me->totalWinners[1] << endl;
     cout << "won with 3 numbers: " << me->totalWinners[2] << endl;
     //cout << x << endl;
+    cleanUp(me); 
     return 0;
 } //main
