@@ -3,7 +3,8 @@
 using namespace std; 
 
 Owner *makeOwner(){    
-    Owner *own = new Owner;  
+    Owner *own = new Owner;
+    own.totalWinners->{0,0,0};  
     own=>numStores= rand()&10+1;
     own=>storeList[numStores]; 
     own=>totalSold = 0; 
@@ -16,6 +17,7 @@ Owner *makeOwner(){
 
 Store makeStore(){
     Store shop;
+    shop.numWinners={0,0,0}; 
     shop.storeID=rand()%100+1; 
     shop.numCust=rand()%10+1;
     shop.numSold=0;  

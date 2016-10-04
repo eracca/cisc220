@@ -14,14 +14,14 @@ struct Store{
     int numCust;
     Customer* customerList; 
     int numSold;
-    int numWinners[3] = {0,0,0};
+    int numWinners[3];
 };
 
 struct Owner{
     Store* storeList;
     int numStores;
     int totalSold;
-    int totalWinners[3]= {0,0,0}; 
+    int totalWinners[3]; 
 };
 
 Owner *makeOwner();
