@@ -1,8 +1,6 @@
 #ifndef LAB2LOTTERY_HH
 #define LAB2LOTTERY_HH
 
-using namespace std; 
-
 struct Customer{
     int custID;
     int numTickets;

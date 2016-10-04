@@ -14,9 +14,10 @@ int main() {
         cout << winners[i] << endl;
     }
     findWinners(me, winners);
-    cout << "won with 1 number: "<< me->totalwinners[0] << endl;
-    cout << "won with 2 numbers: " << me->totalwinners[1] << endl;
-    cout << "won with 3 numbers: " << me->totalwinners[2] << endl;
+    cout << "won with 1 number: "<< me->totalWinners[0] << endl;
+    cout << "won with 2 numbers: " << me->totalWinners[1] << endl;
+    cout << "won with 3 numbers: " << me->totalWinners[2] << endl;
     //cout << x << endl;
+    cleanUp(me); 
     return 0;
 } //main
