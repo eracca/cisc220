@@ -1,0 +1,28 @@
+Data Structure Project 1: Music Suggestion Algorithm
+In this project, the user would upload a song to the program. The program would then
+analyze the beats per minute in the song and try to suggest similar music from a
+library of songs. The library would sort music by beats per minute and then match the
+song that you uploaded with other songs that have the same bpm. On top of this,
+you could also use user data to see what music others listened to after listening
+to the song that you uploaded because the there is usually a corellation.
+
+
+Data Structure Project 2: Undo button
+This program lets you input a text file and then output it once you're finished.
+It would store the information in a way that if a letters are typed within a second
+of each other they would be stored together. But if each character is entered in
+separately with delays, then each character would be stored at a time. An undo
+button will be available, every time you click the undo button the program would 
+delete the last portion of the file that you entered instead of deleting one
+character at a time. This would make it easier to delete and undo changes made.
+
+
+Data Structure Project 3: Informational picture
+This program would have a library of images. Say each image is a 1000x1000 pixel image,
+the picture would allow the user to hover over certain points of the picture which then
+enables the program to display information about the picture. So if a car takes up space
+on the picture from (200,200) -> (400,400) while the user has the mouse in that area, the program
+would give you information about the car in the picture.  This could be done by
+creating an 2 dimensional array which would be layed over the picture, every time
+a portion of the array is hovered over, then the program will display a message
+regarding that portion of the picture. 
