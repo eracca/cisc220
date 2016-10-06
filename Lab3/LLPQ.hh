@@ -12,6 +12,7 @@ public:
     ~LLPQ();
     void printLLPQ();
     void addFirst(char x, int co=-1);
+    void addAtFirst(char x, int c0=-1);
     LLNode* remFirst();
     int findCode(char k);
     void sortLL();
