@@ -1,13 +1,13 @@
-/*DNode.cc
+/*LLNode.cc
 */
 
-#include "DNode.hh"
+#include "LLNode.hh"
 #include <iostream>
 #include <stdlib.h>
 
 using namespace std;
 
-DNode::DNode(char k) {
+LLNode::LLNode(char k) {
     data = k;
     code=NULL; 
     count=0; 
@@ -17,12 +17,12 @@ DNode::DNode(char k) {
     right = NULL;
 }
 
-DNode::~DNode() {
+LLNode::~LLNode() {
     if (next != NULL || prev != NULL) {
-        cout << "deleting this DNode may cause a memory leak" << endl;
+        cout << "deleting this LLNode may cause a memory leak" << endl;
         }
 }
 
-char DNode::getData() {
+char LLNode::getData() {
     return data;
 }
