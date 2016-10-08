@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 #include <cstdlib>
 #include <iostream>
+#include <stdlib.h>
 
 =======
 #include <iostream>
