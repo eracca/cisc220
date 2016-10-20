@@ -17,7 +17,7 @@ public:
     int findCode(char k);
     void sortLL();
     void insertUnique(char c);
-    void insertOrder(LLNode *n)
+    void insertInOrder(LLNode *n)
 };
 
 

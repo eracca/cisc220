@@ -7,10 +7,10 @@
 
 using namespace std;
 
-LLNode::LLNode(char k) {
+LLNode::LLNode(char k, int co) {
     data = k;
-    code=NULL; 
-    count=0; 
+    code= co;  
+    count=1; 
     next = NULL;
     prev = NULL;
     left = NULL;
