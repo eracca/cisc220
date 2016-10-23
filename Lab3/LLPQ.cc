@@ -63,8 +63,36 @@ string LLPQ::findCode(char k){
     return NULL; //char not found
 }
 
-void LLPQ::sortLL(){
-    //
+void LLQ::sortLL(){
+    LLNode *tmp = first; 
+    LLNode *lowPrev = NULL: 
+    LLNode *lowest = first; 
+    LLNode *sort = NULL; 
+    int min = first->count; 
+    while (sort->next != NULL){
+        while (tmp ->next != NULL){
+            if (tmp->next->count < min){
+                min = tmp->next->count; 
+                lowest = tmp->next; 
+                lowPrev = tmp; 
+            }
+            tmp =  tmp->next; 
+        }
+        if (sort == NULL && lowest != first){ //first pass, first node is wrong
+            lowPrev->next = lowest->next; 
+            lowest->next = first; 
+            first = lowest;
+            sort = first; 
+        }
+        else if (sort != NULL){ //all other passes
+            lowPrev->next =  lowest->next;
+            lowest->next = sort->next;
+            sort->next = lowest; 
+            sort = sort->next;
+            tmp = sort;   
+        }
+    }
+    last =  sort; 
 }
 
 void LLPQ::insertUnique(char c){
@@ -79,28 +107,27 @@ void LLPQ::insertUnique(char c){
 }
 
 void LLPQ::insertInOrder(LLNode *n){ 
-    if (n->count <= first->count){  
+    if (n->count <= first->count){ //n goes before first
         n->next = first; 
-        first->prev= n; 
-        size++; 
         first = n; 
-        return; 
+        size++; 
     }
-    LLNode *tmp = first->next 
-    while (tmp->next != NULL){
-        if (n->count <= tmp->count){
-            n->prev = tmp->prev; 
-            n->prev->next = n; 
-            n->next = tmp; 
-            tmp->prev = n; 
-            size++;
-            return;  
+    if (n->count >= last-> count){ //n goes after last
+        last->next = n;  
+        n->next = NULL; 
+        last = n; 
+        size++;
+    }
+    else{ //n goes somewhere else
+        LLNode *tmp = first; 
+        while (tmp->next != NULL){
+            if (n->count > tmp->count){
+                n->next = tmp->next; 
+                tmp->next n; 
+                size ++; 
+                return; 
+            }
         }
-    tmp=tmp->next; 
     }
-    tmp->next = n; 
-    n->prev = n; 
-    size ++; 
-    last = n;  
 }
 
