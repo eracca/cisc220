@@ -7,10 +7,9 @@
 class LLNode {
     friend class LLPQ;
     char data;
-    int code; 
+    char[] code; 
     int count;
     LLNode *next;
-    LLNode *prev;
     LLNode *left;
     LLNode *right; 
 public
