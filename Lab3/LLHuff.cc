@@ -14,6 +14,17 @@ LLHuff::~LLHuff(){
 }
 
 LLHuff::MakeHuff(){
+    //NEEDS WORK
+    LLNode *leftChild = pq.remFirst(); 
+    LLNode *rightChild = pq.remFirst();
+    LLNode *parent = new LLNode("*"); 
+    parent->count = leftChild->count + rightChild->count; 
+    parent->left = leftChild; 
+    parent->right = rightChild;
+    pq.insertInOrder(parent); 
+
+
+    
 }
 
 LLHuff::FindCode(LLNode *root, int path){

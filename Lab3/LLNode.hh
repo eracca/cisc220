@@ -6,6 +6,7 @@
 
 class LLNode {
     friend class LLPQ;
+    friend class LLHuff; 
     char data;
     char[] code; 
     int count;
