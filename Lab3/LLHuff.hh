@@ -14,7 +14,7 @@ public:
     LLHuff(string f)
     ~LLHuff(); 
     void MakeHuff();
-    void FindCode(LLNode *root, int path);
+    void FindCode(LLNode *root, string path);
     void ReadFile();
     void compressFile(); 
 };

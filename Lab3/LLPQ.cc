@@ -39,10 +39,15 @@ void LLPQ::addFirst(char x,  string co= ""){
 }
 
 void LLPQ::addAtFirst(char x, string co=""){
-    LLNode *n = new LLNode(x, co);
-    n->next = first;  
-    first = n; 
-    size++;
+    if (size ==0){
+        addFirst(x, co); 
+    }
+    else{
+        LLNode *n = new LLNode(x, co);
+        n->next = first;  
+        first = n; 
+        size++;
+    }
 }
 
 LLNode* LLPQ::remFirst(){
@@ -107,12 +112,16 @@ void LLPQ::insertUnique(char c){
 }
 
 void LLPQ::insertInOrder(LLNode *n){ 
-    if (n->count <= first->count){ //n goes before first
+    if (size ==0){
+        first = n; 
+        last = n; 
+        size++; 
+    else if (n->count <= first->count){ //n goes before first
         n->next = first; 
         first = n; 
         size++; 
     }
-    if (n->count >= last-> count){ //n goes after last
+    else if (n->count >= last-> count){ //n goes after last
         last->next = n;  
         n->next = NULL; 
         last = n; 

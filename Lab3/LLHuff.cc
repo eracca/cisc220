@@ -7,6 +7,7 @@
 
 LLHuff::LLHuff(string f){
     file = f; 
+    pq = new LLPQ(); 
 }
 
 LLHuff::~LLHuff(){
@@ -14,20 +15,35 @@ LLHuff::~LLHuff(){
 }
 
 LLHuff::MakeHuff(){
-    //NEEDS WORK
-    LLNode *leftChild = pq.remFirst(); 
-    LLNode *rightChild = pq.remFirst();
-    LLNode *parent = new LLNode("*"); 
-    parent->count = leftChild->count + rightChild->count; 
-    parent->left = leftChild; 
-    parent->right = rightChild;
-    pq.insertInOrder(parent); 
-
-
-    
+    while (pq.size > 0){
+        LLNode *leftChild = pq.remFirst(); 
+        LLNode *rightChild = pq.remFirst();
+        LLNode *parent = new LLNode("*"); 
+        parent->count = leftChild->count + rightChild->count; 
+        parent->left = leftChild; 
+        parent->right = rightChild;
+        pq.insertInOrder(parent); 
+    }
+    root = pq->first;  
 }
 
-LLHuff::FindCode(LLNode *root, int path){
+LLHuff::FindCode(){
+    delete pq; 
+    pq = new LLPQ(); 
+    HelpFindCode(root, "");   
+}
+
+LLHuff::HelpFindCode(LLNode *root, string path){
+    //check with TA or Dr. Y 
+    if (root== NULL){
+        return; 
+    }
+    HelpFindCode(root->left, path+"0");
+    root->code = path; 
+    if (root->data != "*"){
+        pq.insertInOrder(root); 
+    }
+    HelpFindcode(root->right, path+ "1"); 
 }
 
 LLHuff::ReadFile(){
