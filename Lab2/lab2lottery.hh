@@ -26,5 +26,8 @@ Owner *makeOwner();
 Store makeStore();
 Customer makeCustomer();
 void getWinners (int winners[]);
+int checkWin(int nums, int *winners); 
+void findWinners(Owner *owner, int *winner); 
+void cleanUp(Owner *owner); 
 
 #endif  

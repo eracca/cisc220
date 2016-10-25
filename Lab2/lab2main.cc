@@ -1,7 +1,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "lab2lottery.hh"
-#include "lab2lottery.cc"
+#include  <iostream>
 
 using namespace std; 
 

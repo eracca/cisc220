@@ -1,3 +1,9 @@
+Part 2: 
+LLHuff.hpp
+LLHUF.CPP
+
+
+
 Part 1: finish by 10/10 so we can keep moving on the higher level code
 
 Alan: 
