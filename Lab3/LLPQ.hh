@@ -3,20 +3,24 @@
 
 #ifndef LLPQ_HH_
 #define LLPQ_HH_
+#include<string>
+using namespace std;
 
 class LLPQ {
 	LLNode* first;
+	LLNode* last;
 	int size;
 public:
 	LLPQ();
 	~LLPQ();
 	void printLLPQ();
-	void addFirst(char x, int co = -1);
+	void addFirst(char x, string co = "");
+	void addAtFirst(char x, string co = "");
 	LLNode* remFirst();
-	int findCode(char k);
+	string findCode(char k);
 	void sortLL();
 	void insertUnique(char c);
-	void insertOrder(LLNode *n);
+	void insertInOrder(LLNode *n)
 };
 
 

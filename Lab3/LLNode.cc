@@ -7,22 +7,21 @@
 
 using namespace std;
 
-LLNode::LLNode(char k) {
-    data = k;
-    code=NULL; 
-    count=0; 
-    next = NULL;
-    prev = NULL;
-    left = NULL;
-    right = NULL;
+LLNode::LLNode(char k, char[] co) {
+	data = k;
+	code = co;
+	count = 1;
+	next = NULL;
+	left = NULL;
+	right = NULL;
 }
 
 LLNode::~LLNode() {
-    if (next != NULL || prev != NULL) {
-        cout << "deleting this LLNode may cause a memory leak" << endl;
-        }
+	if (next != NULL) {
+		cout << "deleting this LLNode may cause a memory leak" << endl;
+	}
 }
 
 char LLNode::getData() {
-    return data;
+	return data;
 }
