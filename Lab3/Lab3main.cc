@@ -5,7 +5,6 @@
 using namespace std;
 
 int main() {
-    /*
     cout << "reading file" << endl;
     LLHuff code("tests.txt");
     code.ReadFile();
@@ -16,7 +15,6 @@ int main() {
     code.compressFile();
     code.ReadAscii();
     return 0;
-    */
 }
 
 

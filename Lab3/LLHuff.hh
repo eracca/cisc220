@@ -4,6 +4,9 @@
 #ifndef LLHUFF_HH_
 #define LLHUFF_HH_
 
+#include "LLNode.hh"
+#include "LLPQ.hh"
+
 class LLHuff {
     string file;
     LLNode *root; 
@@ -11,11 +14,13 @@ class LLHuff {
 public:
     LLPQ *pq;
     LLPQ *ascii;
-    LLHuff(string f)
+    LLHuff(string f);
     ~LLHuff(); 
     void MakeHuff();
-    void FindCode(LLNode *root, string path);
+    void FindCode(); 
+    void HelpFindCode(LLNode *root, string path);
     void ReadFile();
+    void ReadAscii(); 
     void compressFile(); 
 };
 

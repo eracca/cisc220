@@ -4,7 +4,11 @@
 #ifndef LLPQ_HH_
 #define LLPQ_HH_
 
+#include "LLNode.hh"
+#include <string>
+
 class LLPQ {
+    friend class LLHuff; 
     LLNode* first;
     LLNode* last; 
     int size;
@@ -18,7 +22,7 @@ public:
     string findCode(char k);
     void sortLL();
     void insertUnique(char c);
-    void insertInOrder(LLNode *n)
+    void insertInOrder(LLNode *n);
 };
 
 

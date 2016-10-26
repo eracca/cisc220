@@ -3,6 +3,10 @@
 
 #include "LLPQ.hh"
 #include "LLNode.hh"
+#include <iostream>
+#include <string>
+
+using namespace std; 
 
 LLPQ::LLPQ(){
     first=NULL;
@@ -19,7 +23,7 @@ LLPQ::~LLPQ(){
         size --;
     }
     first = NULL; 
-    last = NULL: 
+    last = NULL; 
 }
 
 void LLPQ::printLLPQ(){
@@ -31,16 +35,16 @@ void LLPQ::printLLPQ(){
     cout << endl; 
 }
 
-void LLPQ::addFirst(char x,  string co= ""){
+void LLPQ::addFirst(char x, string co){
     LLNode *n = new LLNode(x, co);
     first =  n; 
     last =  n; 
     size++; 
 }
 
-void LLPQ::addAtFirst(char x, string co=""){
+void LLPQ::addAtFirst(char x, string co){
     if (size ==0){
-        addFirst(x, co); 
+        addFirst(x); 
     }
     else{
         LLNode *n = new LLNode(x, co);
@@ -68,9 +72,9 @@ string LLPQ::findCode(char k){
     return NULL; //char not found
 }
 
-void LLQ::sortLL(){
+void LLPQ::sortLL(){
     LLNode *tmp = first; 
-    LLNode *lowPrev = NULL: 
+    LLNode *lowPrev = NULL;
     LLNode *lowest = first; 
     LLNode *sort = NULL; 
     int min = first->count; 
@@ -108,14 +112,15 @@ void LLPQ::insertUnique(char c){
             return; 
         }
     }
-    addatFirst(c, ""); 
+    addAtFirst(c); 
 }
 
 void LLPQ::insertInOrder(LLNode *n){ 
     if (size ==0){
         first = n; 
         last = n; 
-        size++; 
+        size++;
+    }
     else if (n->count <= first->count){ //n goes before first
         n->next = first; 
         first = n; 
@@ -132,7 +137,7 @@ void LLPQ::insertInOrder(LLNode *n){
         while (tmp->next != NULL){
             if (n->count > tmp->count){
                 n->next = tmp->next; 
-                tmp->next n; 
+                tmp->next= n; 
                 size ++; 
                 return; 
             }
