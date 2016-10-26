@@ -112,13 +112,10 @@ void LLHuff::compressFile(){
     ofstream outfile("compressed.txt",ios::out); //open file for writing
     cout << "I opened the file for writing" << endl; 
     fstream infile(file.c_str(),ios::in); //open file for reading
-    cout << "I opnened the  file for reading" << endl; 
+    cout << "I opnened the file for reading" << endl; 
     char k; 
     string comp;  
     while (infile.get(k)){
-        if (k == ' '){
-            k ==char(32); 
-        }
         comp = pq->findCode(k);
         cout << k << endl; 
         cout << "I found the code" << endl; 
@@ -126,4 +123,4 @@ void LLHuff::compressFile(){
     }
     infile.close(); 
     outfile.close();  
-}
+

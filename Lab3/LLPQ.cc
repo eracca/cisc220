@@ -65,13 +65,13 @@ string LLPQ::findCode(char k){
     cout << "trying to find code" << endl; 
     LLNode *tmp = first; 
     while (tmp->next != NULL){
-        cout <<( k == ' ' )<< endl;  
         if (tmp->data == k){
             cout << "this this is the problem"<<  endl; 
             return tmp->code;  
         }
         tmp=tmp->next; 
     }
+    cout << "character not found" << endl; 
     return NULL; //char not found
 }
 
