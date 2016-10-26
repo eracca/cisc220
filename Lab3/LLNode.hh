@@ -1,4 +1,5 @@
 /*LLNode.hh
+Liz Racca , Allan Chandy
 */
 
 #ifndef LLNODE_HH_
