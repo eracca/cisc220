@@ -11,13 +11,13 @@ using namespace std;
 class LLNode {
     friend class LLPQ;
     friend class LLHuff; 
+public:
     char data;
     string code; 
     int count;
     LLNode *next;
     LLNode *left;
     LLNode *right; 
-public:
     LLNode(char x, string co="");
     ~LLNode();
     char getData();

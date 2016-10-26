@@ -7,9 +7,12 @@
 #include <iostream>
 #include <fstream>
 
+using namespace std;
+
 LLHuff::LLHuff(string f){
-    //NEEDS WORK
     file = f; 
+    root = NULL; 
+    size = 0; 
     pq = new LLPQ(); 
     ascii = new LLPQ(); 
 }
@@ -19,9 +22,11 @@ LLHuff::~LLHuff(){
 }
 
 void LLHuff::MakeHuff(){
-    while (pq->size > 0){
+    while (pq->size > 1){
         LLNode *leftChild = pq->remFirst(); 
+        leftChild->next = NULL; 
         LLNode *rightChild = pq->remFirst();
+        leftChild->next = NULL; 
         LLNode *parent = new LLNode('*'); 
         parent->count = leftChild->count + rightChild->count; 
         parent->left = leftChild; 
@@ -31,8 +36,7 @@ void LLHuff::MakeHuff(){
     root = pq->first;  
 }
 
-void LLHuff::FindCode(){
-    delete pq; 
+void LLHuff::FindCode(){ 
     pq = new LLPQ(); 
     HelpFindCode(root, "");   
 }
@@ -49,7 +53,6 @@ void LLHuff::HelpFindCode(LLNode *root, string path){
     }
     HelpFindCode(root->right, path+ "1"); 
 }
-
 void LLHuff::ReadFile(){
    ifstream infile(file.c_str(),ios::in); // open file
    char k;
@@ -100,15 +103,25 @@ void LLHuff::ReadAscii(){
 }
 
 void LLHuff::compressFile(){
+    cout << "I am trying to compress the file" << endl; 
     ReadFile();//read file first time to make pq
-    MakeHuff();//make Huffman tree
+    cout << "I read the file" << endl; 
     FindCode();//find all the codes
+    cout << "I found the codes" << endl;
+    pq->printLLPQ(); 
     ofstream outfile("compressed.txt",ios::out); //open file for writing
+    cout << "I opened the file for writing" << endl; 
     fstream infile(file.c_str(),ios::in); //open file for reading
+    cout << "I opnened the  file for reading" << endl; 
     char k; 
-    string comp; 
+    string comp;  
     while (infile.get(k)){
-        comp = pq->findCode(k); 
+        if (k == ' '){
+            k ==char(32); 
+        }
+        comp = pq->findCode(k);
+        cout << k << endl; 
+        cout << "I found the code" << endl; 
         outfile << comp<< " "; 
     }
     infile.close(); 

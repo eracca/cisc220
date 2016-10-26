@@ -29,7 +29,7 @@ LLPQ::~LLPQ(){
 void LLPQ::printLLPQ(){
     LLNode *n = first;
     while (n != NULL){
-        cout << n->data << "->";
+        cout << n->data << ":"<< n->count << ":" << n->code << "->";
         n=n->next;
     }
     cout << endl; 
@@ -62,63 +62,54 @@ LLNode* LLPQ::remFirst(){
 }
 
 string LLPQ::findCode(char k){
+    cout << "trying to find code" << endl; 
     LLNode *tmp = first; 
     while (tmp->next != NULL){
+        cout <<( k == ' ' )<< endl;  
         if (tmp->data == k){
-            return tmp->code; 
-        tmp=tmp->next; 
+            cout << "this this is the problem"<<  endl; 
+            return tmp->code;  
         }
+        tmp=tmp->next; 
     }
     return NULL; //char not found
 }
 
 void LLPQ::sortLL(){
+    LLPQ *sorted =  new LLPQ(); 
     LLNode *tmp = first; 
-    LLNode *lowPrev = NULL;
-    LLNode *lowest = first; 
-    LLNode *sort = NULL; 
-    int min = first->count; 
-    while (sort->next != NULL){
-        while (tmp ->next != NULL){
-            if (tmp->next->count < min){
-                min = tmp->next->count; 
-                lowest = tmp->next; 
-                lowPrev = tmp; 
-            }
-            tmp =  tmp->next; 
-        }
-        if (sort == NULL && lowest != first){ //first pass, first node is wrong
-            lowPrev->next = lowest->next; 
-            lowest->next = first; 
-            first = lowest;
-            sort = first; 
-        }
-        else if (sort != NULL){ //all other passes
-            lowPrev->next =  lowest->next;
-            lowest->next = sort->next;
-            sort->next = lowest; 
-            sort = sort->next;
-            tmp = sort;   
-        }
+    LLNode *tmpNext = tmp-> next; 
+    while (tmp!=NULL){
+        tmpNext=tmp->next;
+        sorted->insertInOrder(tmp); 
+        tmp=tmpNext;  
     }
-    last =  sort; 
+    first = sorted->first;
+    last = sorted->last;   
 }
+    
 
 void LLPQ::insertUnique(char c){
+    if (size==0){
+        addFirst(c);
+        return; 
+    }
     LLNode *tmp= first; 
-    while (tmp->next !=NULL){
+    while (tmp !=NULL){
         if (tmp->data ==c){
             tmp->count++; 
             return; 
         }
+        tmp=tmp->next; 
     }
     addAtFirst(c); 
 }
 
-void LLPQ::insertInOrder(LLNode *n){ 
-    if (size ==0){
+void LLPQ::insertInOrder(LLNode *n){
+    if (size ==0){ //n is first to be added
         first = n; 
-        last = n; 
+        last = n;
+        n->next = NULL;  
         size++;
     }
     else if (n->count <= first->count){ //n goes before first
@@ -134,14 +125,12 @@ void LLPQ::insertInOrder(LLNode *n){
     }
     else{ //n goes somewhere else
         LLNode *tmp = first; 
-        while (tmp->next != NULL){
-            if (n->count > tmp->count){
-                n->next = tmp->next; 
-                tmp->next= n; 
-                size ++; 
-                return; 
-            }
+        while (tmp->next->count < n->count){
+            tmp=tmp->next; 
         }
+        n->next=tmp->next; 
+        tmp->next = n; 
+        size++;
     }
 }
 
