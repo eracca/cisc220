@@ -1,0 +1,18 @@
+Lab Instructions:  
+https://www.eecis.udel.edu/~yarringt/CISC220/Fall16/Lab4Bogglish.pdf
+
+Part A - make  boggle game: 
+plan out functions and classes
+make header files
+NodeTB class
+BSTB (binary search tree) class
+example AVL class: http://www.sanfoundry.com/cpp-program-implement-avl-trees/
+testing of BSTB methods short dictionary
+testing of BSTB methods with long dictionary
+Game class 
+testing of game with long dictionary
+
+Part B - final project planning: 
+plan out what we want to do
+make header files
+
