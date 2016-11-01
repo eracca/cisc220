@@ -1,11 +1,15 @@
 #include <time.h>
 #include <stdlib.h>
 #include "lab2lottery.hh"
+<<<<<<< HEAD
 #include "lab2lottery.cc"
 <<<<<<< HEAD
 #include <iostream>
 =======
 >>>>>>> bdcb1ba13a9908966e07e546a0a2834789093fa4
+=======
+#include  <iostream>
+>>>>>>> 728ed1c5585fae33fa180d0a4bd7d08d1e7084cd
 
 using namespace std; 
 int main() {
