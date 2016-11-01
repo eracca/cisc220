@@ -1,20 +1,25 @@
 /*LLNode.hh
+Liz Racca , Allan Chandy
 */
 
-#ifndef LLNODE_HPP_
-#define LLODE_HPP_
+#ifndef LLNODE_HH_
+#define LLNODE_HH_
+
+#include <string>
+
+using namespace std;
 
 class LLNode {
     friend class LLPQ;
     friend class LLHuff; 
+public:
     char data;
-    char[] code; 
+    string code; 
     int count;
     LLNode *next;
     LLNode *left;
     LLNode *right; 
-public
-    LLNode(char x);
+    LLNode(char x, string co="");
     ~LLNode();
     char getData();
 };

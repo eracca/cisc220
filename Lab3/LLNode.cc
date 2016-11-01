@@ -4,12 +4,13 @@
 #include "LLNode.hh"
 #include <iostream>
 #include <stdlib.h>
+#include <string>
 
 using namespace std;
 
-LLNode::LLNode(char k, char[] co) {
+LLNode::LLNode(char k, string co) {
     data = k;
-    code= co;  
+    code= co; 
     count=1; 
     next = NULL;
     left = NULL;
