@@ -3,6 +3,9 @@
 
 #include "BSTB.hh"
 #include "NodeTB.hh"
+#include <stdlib.h>
+#include <iostream> 
+#include <string>
 
 using namespace std; 
 
@@ -18,15 +21,15 @@ BSTB::~BSTB(){
         return;
     }
     else{
-        ~BSTB(root); 
+        delTree(root); 
     }
 }
-BSTB::~BSTB(NodeTB *cur){
+void BSTB::delTree(NodeTB *cur){
     if(cur == NULL){
         return;
     }
-    ~BSTB(cur->left);
-    ~BSTB(cur->right); 
+    delTree(cur->left);
+    delTree(cur->right); 
     delete cur; 
 }
 bool BSTB::insert(string x){
@@ -75,10 +78,10 @@ bool BSTB::search(NodeTB *n, string x){
        if (n->word == x){
            return true; 
        }
-       if (n->word > word){
+       if (n->word > x){
            search(n->left, x); 
        }
-       if (n->word < word){
+       if (n->word < x){
            search(n->right, x); 
        }
     }
@@ -114,8 +117,9 @@ int BSTB::getScore(BSTB *dict){
     return getScore(root, dict); 
 }
 int BSTB::getScore(NodeTB *n, BSTB *dict){
+    int score;
     if (n!=NULL){
-        if (dict->search(n->word){
+        if (dict->search(n->word)){
             score = 3;
         }
         else{

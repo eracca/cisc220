@@ -5,13 +5,18 @@
 #define BSTB_HH_
 
 #include "NodeTB.hh"
+#include <stdlib.h>
+#include <string>
+
+using namespace std; 
 
 class BSTB {
     NodeTB *root;
     int count;
 public:
     BSTB(); 
-    ~BSTB();
+    ~BSTB(); 
+    void delTree(NodeTB *n);
     bool insert(string x); 
     bool insert(string x, NodeTB *n);
     void printTreeio(); 
