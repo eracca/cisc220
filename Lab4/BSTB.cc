@@ -32,17 +32,84 @@ void BSTB::delTree(NodeTB *cur){
     delTree(cur->right); 
     delete cur; 
 }
+/*
 bool BSTB::insert(string x){
+    if (root==NULL){
+        root = new NodeTB(x); 
+        count ++;
+        cout << "I added " << x << " to tree." << endl;  
+        return true; 
+    }
+    if (!search(x)){
+        count ++;
+        return insert(x,root);  
+    }
+    return false; 
 }
+*/
+bool BSTB::insert(string x){
+    if (root == NULL){
+        root =  new NodeTB(x); 
+        count ++;  
+        return true; 
+    }
+    else{
+        return insert(x, root); 
+    }
+}
+
 bool BSTB::insert(string x, NodeTB *n){
+    //NEEDS WORK
+    if (n != NULL){
+        if (x== n->word){
+            return false; 
+        }
+        if (x < n->word){
+            insert(x, n->left);  
+        }
+        if (x > n->word){
+            insert(x, n->right); 
+        }
+    }
+    else{
+        n = new NodeTB(x); 
+        return true; 
+    }
 }
-void BSTB::printTreeio(){
+
+void BSTB::printTreeio(){ 
+    if (root ==NULL){
+        cout << "The  tree  is empty" << endl;
+        return;
+    }
+    else{
+        printTreeio(root); 
+        cout << endl; 
+    }
 }
 void BSTB::printTreeio(NodeTB *n){
+    if (n != NULL){
+        printTreeio(n->left);
+        cout << n->word << " "; 
+        printTreeio(n->right); 
+    }
 }
 void BSTB::printTreePre(){
+    if (root == NULL){
+        cout << "The tree is empty" << endl; 
+        return;  
+    }
+    else{
+        printTreePre(root);
+        cout << endl;  
+    }
 }
 void BSTB::printTreePre(NodeTB *n){
+    if (n!= NULL){
+        cout << n->word << " "; 
+        printTreePre(n->left);
+        printTreePre(n->right);  
+    }
 }
 void BSTB::printTreePost(){
     //liz
@@ -52,6 +119,7 @@ void BSTB::printTreePost(){
     }
     else{
         printTreePost(root);
+        cout << endl; 
     }
 }
 void BSTB::printTreePost(NodeTB *n){
@@ -59,7 +127,7 @@ void BSTB::printTreePost(NodeTB *n){
     if(n != NULL){
         printTreePost(n->left);
         printTreePost(n->right);
-        cout << n->word << endl; 
+        cout << n->word << " "; 
     }
 }
 bool BSTB::search(string x){
@@ -79,15 +147,17 @@ bool BSTB::search(NodeTB *n, string x){
            return true; 
        }
        if (n->word > x){
-           search(n->left, x); 
+           return search(n->left, x); 
        }
        if (n->word < x){
-           search(n->right, x); 
+           return search(n->right, x); 
        }
     }
     return false; 
 }
 void BSTB::adjustBalances(NodeTB *n){
+
+
 }
 int BSTB::height(NodeTB *n){
     //helper function for adjust balances
@@ -95,7 +165,7 @@ int BSTB::height(NodeTB *n){
     if (n!=NULL){
         int hleft = height(n->left); 
         int hright = height(n->right); 
-        h = max(hleft, hright)+1; 
+        h = h + max(hleft, hright); 
     }
     return h; 
 }
