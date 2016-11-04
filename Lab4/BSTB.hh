@@ -23,8 +23,11 @@ public:
     bool search(string x); 
     bool search(NodeTB *n, string x); 
     void adjustBalances(NodeTB *n); 
+	void delTree(NodeTB *cur);
+	int height(NodeTB *n);
     NodeTB *rotateRight(NodeTB *n); 
     NodeTB *rotateLeft(NodeTB *n); 
+	int getScore(BSTB *dict); 
     int getScore(NodeTB *n, BSTB *dict); 
 };
 

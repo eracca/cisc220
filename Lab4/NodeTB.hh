@@ -6,6 +6,8 @@
 
 #include <string> 
 
+using namespace std;
+
 class NodeTB {
     friend class BSTB; 
     NodeTB *left;
@@ -14,6 +16,6 @@ class NodeTB {
 public:
     NodeTB(string w); 
     ~NodeTB(); 
-}
+};
 
 #endif
