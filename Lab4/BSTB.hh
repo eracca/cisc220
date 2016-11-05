@@ -18,7 +18,6 @@ public:
     ~BSTB(); 
     void delTree(NodeTB *n);
     bool insert(string x); 
-    bool insert(string x, NodeTB *n);
     void printTreeio(); 
     void printTreeio(NodeTB *n); 
     void printTreePre(); 

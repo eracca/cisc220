@@ -14,6 +14,7 @@ int main(){
     test->insert("babe");
     test->insert("rest"); 
     test->insert("wanton");
+    test->insert("wanton"); 
     test->insert("shawn");
     test->insert("dunce");
     test->insert("fabric");
@@ -24,7 +25,5 @@ int main(){
     test->printTreeio(); 
     test->printTreePre();
     test->printTreePost();  
-    cout << "I did it!" << endl;  
-    cout << ("babe" == "babe") << endl; 
     return 0; 
 }

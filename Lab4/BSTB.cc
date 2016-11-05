@@ -32,52 +32,38 @@ void BSTB::delTree(NodeTB *cur){
     delTree(cur->right); 
     delete cur; 
 }
-/*
-bool BSTB::insert(string x){
-    if (root==NULL){
-        root = new NodeTB(x); 
-        count ++;
-        cout << "I added " << x << " to tree." << endl;  
-        return true; 
-    }
-    if (!search(x)){
-        count ++;
-        return insert(x,root);  
-    }
-    return false; 
-}
-*/
 bool BSTB::insert(string x){
     if (root == NULL){
-        root =  new NodeTB(x); 
-        count ++;  
+        root = new NodeTB(x); 
+        count ++; 
         return true; 
-    }
-    else{
-        return insert(x, root); 
-    }
-}
-
-bool BSTB::insert(string x, NodeTB *n){
-    //NEEDS WORK
-    if (n != NULL){
-        if (x== n->word){
+    } 
+    NodeTB* tmp = root; 
+    while (tmp != NULL){
+        if (x == tmp->word){
+            cout << x << " is already in the tree" << endl; 
             return false; 
         }
-        if (x < n->word){
-            insert(x, n->left);  
+        if (x < tmp->word){
+            if (tmp->left == NULL){
+                tmp->left = new NodeTB(x); 
+                count ++; 
+                return true; 
+            }
+            tmp=tmp->left; 
         }
-        if (x > n->word){
-            insert(x, n->right); 
+        if (x > tmp->word){
+            if (tmp->right == NULL){
+                tmp->right = new NodeTB(x); 
+                count ++;
+                return true; 
+            }
+            tmp= tmp->right;
         }
-    }
-    else{
-        n = new NodeTB(x); 
-        return true; 
     }
 }
-
 void BSTB::printTreeio(){ 
+    cout << "In order printout: " << endl; 
     if (root ==NULL){
         cout << "The  tree  is empty" << endl;
         return;
@@ -95,6 +81,7 @@ void BSTB::printTreeio(NodeTB *n){
     }
 }
 void BSTB::printTreePre(){
+    cout << "Pre order printout: " << endl; 
     if (root == NULL){
         cout << "The tree is empty" << endl; 
         return;  
@@ -113,6 +100,7 @@ void BSTB::printTreePre(NodeTB *n){
 }
 void BSTB::printTreePost(){
     //liz
+    cout << "Post order printout: " << endl; 
     if (root == NULL){
         cout << "The tree is empty" << endl; 
         return;
