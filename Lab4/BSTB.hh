@@ -22,10 +22,12 @@ public:
     void printTreePost(NodeTB *n); 
     bool search(string x); 
     bool search(NodeTB *n, string x); 
-    void adjustBalances(NodeTB *n); 
+	void adjustBalances(NodeTB *n);
+	void adjustBalances();
 	void delTree(NodeTB *cur);
 	int height(NodeTB *n);
-    NodeTB *rotateRight(NodeTB *n); 
+	int height();
+	NodeTB *rotateRight(NodeTB *n);
     NodeTB *rotateLeft(NodeTB *n); 
 	int getScore(BSTB *dict); 
     int getScore(NodeTB *n, BSTB *dict); 
