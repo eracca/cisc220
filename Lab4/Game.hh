@@ -15,7 +15,6 @@ class Game {
     BSTB *wordlist; 
     int numright; 
 public:
-    Game();
     Game(string infile); 
     void startGame(); 
     void readTreeFromFile(string dictfile); 

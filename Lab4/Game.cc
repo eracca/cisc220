@@ -8,11 +8,9 @@
 
 using namespace std;
 
-Game::Game(){
-    //liz
-}
 Game::Game(string infile){
     //liz
+    readTreeFromFile(infile);  
 }
 void Game::startGame(){
 }
@@ -29,12 +27,34 @@ void Game::readTreeFromFile(string dictfile){
     return; 
 }
 char* Game::getLetters(int x){
-    //liz
 }
 void Game::getWords(){
+    //liz
+    string word; 
+    while (word != "-1"){
+        cout << "Enter a word or -1 if you are finished. " << endl
+        << "word: "; 
+        getline (cin, word); 
+        if (word != "-1"){
+            wordlist->insert(word); 
+        }
+    }
+    return;  
 }
 bool Game::checkWLetters(string s){
     //liz
+    for (char & c : s){
+        bool charMatch = false;
+        for (int i = 0; i < numletters; i++){
+            if (c == currletters[i]){
+                charMatch == true; 
+            }
+        }
+        if (!charMatch){
+            return false; 
+        }
+    }
+    return true;             
 }
 void Game::checkWordsForScore{
 }

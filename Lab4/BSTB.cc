@@ -144,8 +144,7 @@ bool BSTB::search(NodeTB *n, string x){
     return false; 
 }
 void BSTB::adjustBalances(NodeTB *n){
-
-
+    cout << height(root) << endl; 
 }
 int BSTB::height(NodeTB *n){
     //helper function for adjust balances
