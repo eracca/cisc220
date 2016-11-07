@@ -24,12 +24,18 @@
     <ClCompile Include="Main.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BSTB.hh">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NodeTB.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.hh">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

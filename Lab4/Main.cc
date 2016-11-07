@@ -3,6 +3,7 @@
 
 #include "NodeTB.hh"
 #include "BSTB.hh"
+#include "Game.hh"
 #include <iostream>
 #include <stdlib.h>
 #include <string>
@@ -10,7 +11,7 @@
 using namespace std;
 
 int main() {
-	BSTB* test = new BSTB();
+	/*BSTB* test = new BSTB();
 	test->insert("babe");
 	test->insert("rest");
 	test->insert("wanton");
@@ -27,7 +28,9 @@ int main() {
 	cout << test->height() << endl;
 	test->printTreeio();
 	test->printTreePre();
-	test->printTreePost();
+	test->printTreePost();*/
+	Game* test = new Game();
+	test->startGame();
 	system("pause");
 	return 0;
 }

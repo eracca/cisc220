@@ -98,11 +98,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BSTB.cc" />
+    <ClCompile Include="Game.cc" />
     <ClCompile Include="Main.cc" />
     <ClCompile Include="NodeTB.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BSTB.hh" />
+    <ClInclude Include="Game.hh" />
     <ClInclude Include="NodeTB.hh" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

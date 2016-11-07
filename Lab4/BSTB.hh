@@ -13,8 +13,7 @@ public:
     BSTB(); 
     ~BSTB();
     bool insert(string x); 
-    bool insert(string x, NodeTB *n);
-    void printTreeio(); 
+	void printTreeio(); 
     void printTreeio(NodeTB *n); 
     void printTreePre(); 
     void printTreePre(NodeTB *n); 
