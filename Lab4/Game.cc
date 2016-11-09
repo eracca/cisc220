@@ -5,6 +5,9 @@
 #include "BSTB.hh"
 #include <string>
 #include <fstream>
+#include <stdlib.h>
+#include <iostream>
+#include <time.h>
 
 using namespace std;
 
@@ -13,8 +16,24 @@ Game::Game(string infile){
     readTreeFromFile(infile);  
 }
 void Game::startGame(){
-
+    wordlist = new BSTB();
+    srand(time(NULL));
+    int input; 
+    cout << "How many letters would you like?" << endl;
+    cin >> input;
+    numletters = input; 
+    cout << "got some" << endl; 
+    cout << numletters << endl; 
+    currletters = getLetters(numletters);  
+    cout << "Your letters are: ";
+    for (int i= 0; i < numletters; i++){
+        cout << currletters[i] << " " ; 
+    }
+    cout << endl; 
+    getWords();
+    checkWordsForScore();  
 }
+
 void Game::readTreeFromFile(string dictfile){
     dict = new BSTB();
     ifstream file(dictfile.c_str());
@@ -27,18 +46,41 @@ void Game::readTreeFromFile(string dictfile){
     }
     return; 
 }
-char* Game::getLetters(int x){
-
-    
+char* Game::getLetters(int x){  
+    cout << "trying to get letters" << endl; 
+    char vowels[5] = {'a','e','i','o','u'}; 
+    char cons[21] = {'b','c','d','f','g','h','j','k','l','m','n','p',
+                           'q','r','s','t','v','w','x','y','z'}; 
+    cout << "its not the constants" << endl;
+    char *letters = new char[numletters];
+    cout << "initialize" << endl;   
+    cout << numletters << endl; 
+    int numVowels = rand() % x+ 1; 
+    cout <<  "wht" <<  endl;
+    int numCons = numletters - numVowels; 
+    cout << "entering first loop" << endl; 
+    for (int i = 0 ; i < numVowels; i++){
+        letters[i] = vowels[rand() % numVowels]; 
+        cout << "i: " << i << " , " << currletters[i] << endl; 
+    }
+    cout << "entering second loop" << endl; 
+    for (int j = numVowels ; j< numletters; j++){
+        letters[j] = cons[rand() % numCons]; 
+    }
+    cout << "gucci" << endl ;
+    return letters;  
 }
 void Game::getWords(){
     //liz
     string word; 
-    while (word != "-1"){
+    while (true){
         cout << "Enter a word or -1 if you are finished. " << endl
         << "word: "; 
-        getline (cin, word); 
-        if (word != "-1"){
+        getline (cin, word);
+        if (word == "-1"){
+            return; 
+        }
+        if (checkWLetters(word)){
             wordlist->insert(word); 
         }
     }
@@ -46,10 +88,11 @@ void Game::getWords(){
 }
 bool Game::checkWLetters(string s){
     //liz
-    for (char & c : s){
+    //not working
+    for (int c = 0; c < s.size(); c++){
         bool charMatch = false;
         for (int i = 0; i < numletters; i++){
-            if (c == currletters[i]){
+            if (s[c] == currletters[i]){
                 charMatch == true; 
             }
         }
@@ -59,5 +102,9 @@ bool Game::checkWLetters(string s){
     }
     return true;             
 }
-void Game::checkWordsForScore{
+
+void Game::checkWordsForScore(){
+    cout << wordlist->getScore(dict) << endl; 
+    return; 
 }
+

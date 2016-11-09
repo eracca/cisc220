@@ -1,11 +1,13 @@
 /*Game.hh
 */
 
-#ifndef BSTB_HH_
-#define BSTB_HH_
+#ifndef GAME_HH__
+#define GAME_HH_
 
 #include "BSTB.hh"
 #include <string>
+
+using namespace std; 
 
 class Game {
     BSTB *dict; 
