@@ -16,6 +16,7 @@ Game::Game() {
 }
 Game::Game(string infile) {
 	//liz
+	readTreeFromFile(infile);
 }
 
 void Game::startGame() {
@@ -30,7 +31,8 @@ void Game::startGame() {
 		cout << "Your letters are: ";
 		cout << getLetters(input) << endl;
 		cout << endl << "Please enter the words you would like to guess: " << endl;
-		cin >> input0;
+		getWords();
+		checkWordsForScore();
 
 	}
 
@@ -72,11 +74,34 @@ char* Game::getLetters(int x) {
 }
 void Game::getWords() {
 	//liz
+	string word;
+	while (word != "-1") {
+		cout << "Enter a word or -1 if you are finished. " << endl
+			<< "word: ";
+		getline(cin, word);
+		if (word != "-1") {
+			wordlist->insert(word);
+		}
+	}
+	return;
 }
 bool Game::checkWLetters(string s) {
 	//liz
+	for (char & c : s) {
+		bool charMatch = false;
+		for (int i = 0; i < numletters; i++) {
+			if (c == currletters[i]) {
+				charMatch == true;
+			}
+		}
+		if (!charMatch) {
+			return false;
+		}
+	}
+	return true;
 }
 void Game::checkWordsForScore(){
-
+	cout << wordlist->getScore (dict) << endl;
+	
 }
 

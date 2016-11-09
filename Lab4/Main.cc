@@ -11,7 +11,7 @@
 using namespace std;
 
 int main() {
-	/*BSTB* test = new BSTB();
+	BSTB* test = new BSTB();
 	test->insert("babe");
 	test->insert("rest");
 	test->insert("wanton");
@@ -23,14 +23,9 @@ int main() {
 	test->insert("chars");
 	test->insert("master");
 	cout << "I added some words!" << endl;
-	cout << test->height() << endl;	
-	test->adjustBalances();
-	cout << test->height() << endl;
 	test->printTreeio();
 	test->printTreePre();
-	test->printTreePost();*/
-	Game* test = new Game();
-	test->startGame();
+	test->printTreePost();
 	system("pause");
 	return 0;
 }
