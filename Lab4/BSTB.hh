@@ -28,6 +28,7 @@ public:
     bool search(NodeTB *n, string x); 
     void adjustBalances(NodeTB *n); 
     int height(NodeTB *n); 
+    int balance(NodeTB *n); 
     NodeTB *rotateRight(NodeTB *n); 
     NodeTB *rotateLeft(NodeTB *n);  
     int getScore(BSTB *dict); 

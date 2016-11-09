@@ -13,6 +13,7 @@ Game::Game(string infile){
     readTreeFromFile(infile);  
 }
 void Game::startGame(){
+
 }
 void Game::readTreeFromFile(string dictfile){
     dict = new BSTB();
@@ -27,6 +28,8 @@ void Game::readTreeFromFile(string dictfile){
     return; 
 }
 char* Game::getLetters(int x){
+
+    
 }
 void Game::getWords(){
     //liz

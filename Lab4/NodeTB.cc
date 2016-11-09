@@ -12,6 +12,7 @@ NodeTB::NodeTB(string w){
     word = w;
     left = NULL;
     right = NULL; 
+    parent = NULL; 
 }
 NodeTB::~NodeTB(){
     if (left != NULL || right != NULL){
