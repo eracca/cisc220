@@ -38,5 +38,11 @@
     <ClInclude Include="Game.hh">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PartBParagraphs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PartBBSTB.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
