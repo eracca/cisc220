@@ -1,5 +1,6 @@
 /*Game.hh
 */
+//Allan Chandy & Liz Racca
 
 #ifndef GAME_HH_
 #define GAME_HH_
@@ -15,6 +16,7 @@ class Game {
 	BSTB *wordlist;
 	int numright;
 public:
+	Game();
 	Game(string infile);
 	void startGame();
 	void readTreeFromFile(string dictfile);

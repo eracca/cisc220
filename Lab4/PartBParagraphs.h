@@ -1,5 +1,6 @@
 /*PartBParagraphs.hh
 */
+//Allan Chandy & Liz Racca
 
 #ifndef PARTBPARAGRAPHS_HH_
 #define PARTBPARAGRAPHS_HH_

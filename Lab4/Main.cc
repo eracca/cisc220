@@ -1,6 +1,6 @@
 /*Main.cc
 */
-
+//Allan Chandy & Liz Racca
 #include "NodeTB.hh"
 #include "BSTB.hh"
 #include "Game.hh"
@@ -12,7 +12,8 @@ using namespace std;
 
 int main() {
 	BSTB* test = new BSTB();
-	test->insert("babe");
+	Game* test2 = new Game();
+	/*test->insert("babe");
 	test->insert("rest");
 	test->insert("wanton");
 	test->insert("wanton");
@@ -25,7 +26,9 @@ int main() {
 	cout << "I added some words!" << endl;
 	test->printTreeio();
 	test->printTreePre();
-	test->printTreePost();
-	system("pause");
+	test->printTreePost();*/ // Tests BSTB
+	test2->startGame();
+	system("pause"); // Tests Game
 	return 0;
+
 }

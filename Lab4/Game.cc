@@ -1,5 +1,6 @@
 /*Game.cc
 */
+//Allan Chandy & Liz Racca
 
 #include "Game.hh"
 #include "BSTB.hh"
@@ -24,8 +25,7 @@ void Game::startGame() {
 	string input0 = "";
 	int input = 0;
 	while (input0 != "-1") {
-		
-		srand(time(NULL));
+
 		cout << "How many letters would you like?" << endl;
 		cin >> input;
 		cout << "Your letters are: ";
@@ -52,7 +52,7 @@ void Game::readTreeFromFile(string dictfile) {
 }
 
 char* Game::getLetters(int x) {
-	const char allLetters[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+	const char allLetters[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
 	char* Alphabets = new char[x];
 	int RandIndex;
 	int constCount = 0;
@@ -91,7 +91,7 @@ bool Game::checkWLetters(string s) {
 		bool charMatch = false;
 		for (int i = 0; i < numletters; i++) {
 			if (c == currletters[i]) {
-				charMatch == true;
+				charMatch = true;
 			}
 		}
 		if (!charMatch) {
@@ -100,8 +100,8 @@ bool Game::checkWLetters(string s) {
 	}
 	return true;
 }
-void Game::checkWordsForScore(){
-	cout << wordlist->getScore (dict) << endl;
-	
+void Game::checkWordsForScore() {
+	cout << wordlist->getScore(dict) << endl;
+	return;
 }
 
