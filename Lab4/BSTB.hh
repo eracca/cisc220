@@ -5,15 +5,19 @@
 #define BSTB_HH_
 
 #include "NodeTB.hh"
+#include <stdlib.h>
+#include <string>
+
+using namespace std; 
 
 class BSTB {
     NodeTB *root;
     int count;
 public:
     BSTB(); 
-    ~BSTB();
+    ~BSTB(); 
+    void delTree(NodeTB *n);
     bool insert(string x); 
-    bool insert(string x, NodeTB *n);
     void printTreeio(); 
     void printTreeio(NodeTB *n); 
     void printTreePre(); 
@@ -23,8 +27,11 @@ public:
     bool search(string x); 
     bool search(NodeTB *n, string x); 
     void adjustBalances(NodeTB *n); 
+    int height(NodeTB *n); 
+    int balance(NodeTB *n); 
     NodeTB *rotateRight(NodeTB *n); 
-    NodeTB *rotateLeft(NodeTB *n); 
+    NodeTB *rotateLeft(NodeTB *n);  
+    int getScore(BSTB *dict); 
     int getScore(NodeTB *n, BSTB *dict); 
 };
 
