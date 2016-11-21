@@ -1,6 +1,10 @@
 /*Main.cc
 */
+<<<<<<< HEAD
 //Allan Chandy & Liz Racca
+=======
+
+>>>>>>> ea460b931cf6d4df8877bbea1445e4cbdaa1aa64
 #include "NodeTB.hh"
 #include "BSTB.hh"
 #include "Game.hh"
@@ -8,6 +12,7 @@
 #include <stdlib.h>
 #include <string>
 
+<<<<<<< HEAD
 using namespace std;
 
 int main() {
@@ -32,3 +37,12 @@ int main() {
 	return 0;
 
 }
+=======
+using namespace std; 
+
+int main(){
+    Game* g1 = new Game("testdict.txt"); 
+    g1->startGame(); 
+    return 0; 
+}
+>>>>>>> ea460b931cf6d4df8877bbea1445e4cbdaa1aa64

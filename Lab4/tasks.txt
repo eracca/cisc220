@@ -24,10 +24,28 @@ void adjustBalances(NoteTB *n)
 
 
 example AVL class: http://www.sanfoundry.com/cpp-program-implement-avl-trees/
+
 testing of BSTB methods short dictionary
-testing of BSTB methods with long dictionary
+insert is working, printing is working, need to progress further to test other methods
+adjustBalances not done
+
+testing of BSTB methods with long dictionary - need adjustBalances, readTreet to be done
+
 Game class 
+
+Liz:
+Game()
+getLetters(int x)
+bool checkWLetters(string x)
+
+Allan: 
+startGame() 
+getWords()
+void checkWordsForScore()
+
+
 testing of game with long dictionary
+add additional functionality, I want to at least add a timer so the game is somewhat playable
 
 Part B - final project planning: 
 plan out what we want to do
