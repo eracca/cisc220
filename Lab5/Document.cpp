@@ -20,7 +20,7 @@ Document::Document(string f) {
 string Document::strip(string w){
 	int x = strlen(w.c_str());
 	string neww="";
-	cout << w << ":" << x << endl;
+	//cout << w << ":" << x << endl;
 	char punct[] = {'!', '.', ',',':', ';','\'','"','(',')'};
 	for (int i = 0; i < x; i++) {
 		bool flag = false;
@@ -48,14 +48,30 @@ bool Document::checkFunctionWords(string w) {
 }
 void Document::pickSort(int i) {  // 0 = insertionSort, 1 = QuickSort, 2= heapSort
     if (i == 0) {
+        cout << "INSERTIONSORT" << endl; 
+        cout << endl; 
+        cout << endl; 
     	wordlist->insertionSortLL();
+        wordlist->printLL(); 
     }
     else if (i == 1) {
-	wordlist->wordarr= wordlist->convertToArray();
-    	wordlist->quickSort(0,wordlist->size-1);
+        cout << "QUICKSORT" << endl; 
+        cout << endl; 
+        cout << endl; 
+        wordlist->wordarr= wordlist->convertToArray();
+        cout << "converted to array" << endl; 
+        wordlist->quickSort(0,wordlist->size-1); 
+        //for testing
+        for (int j = 0 ; j< wordlist->size ; j++){
+            cout << wordlist->wordarr[j].count <<
+            ":" << wordlist->wordarr[j].word << endl; 
+        }
     }
     else if (i == 2) {
-	wordlist->heapSort();
+        cout << "HEAP SORT" << endl; 
+        cout << endl; 
+        cout << endl; 
+        wordlist->heapSort();
     }
 }
 void Document::readFile() {
@@ -68,11 +84,11 @@ void Document::readFile() {
 	while (infile>>word) {          // loop getting single characters
 		word = strip(word);
 		if (!checkFunctionWords(word)) {
-			cout << word << " is valid " << endl;
+			//cout << word << " is valid " << endl;
 			wordlist->insertUnique(word);
 		}
 		else {
-			cout << word << " removed" << endl;
+			//cout << word << " removed" << endl;
 		}
 	}
 	wordlist->printLL();

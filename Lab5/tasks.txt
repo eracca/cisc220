@@ -1,6 +1,6 @@
 Finish sorts by 11/21
-quicksort - Allan
-insertionsort - Liz
+quicksort - Liz
+insertionsort - Allan
 heapsort - whoever finishes first
 
 project due 12/9

@@ -14,7 +14,7 @@ int main() {
 	cout << "hi" << endl;
 	Document doc("Monet.txt");
 	doc.readFile();
-	doc.pickSort(0);
+	doc.pickSort(1);
 	return 0;
 }
 

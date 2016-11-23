@@ -40,8 +40,6 @@ void LLSE::addFirst(string w) {
 	size = 1;
 }
 
-
-
 void LLSE::insertUnique(string w) {
 	Node *tmp = first;
 	if (tmp == NULL) {
@@ -81,19 +79,75 @@ void LLSE::insertUnique(string w) {
 // Write an insertion Sort on the linked list (not an array, 
 // a linked list!
 void LLSE::insertionSortLL() {
+    Node* tmp=first;  
+    Node* tmp2; 
+    Node* key = first; 
+    while (tmp->next != NULL){
+        //take key out. tmp holds place of last sorted node
+        key = tmp->next; 
+        tmp->next = key->next; //need to handle last 
+        //insert key in order
+        //put key at front if it belongs there
+        if (key->count < first->count){
+            key->next =  first; 
+            first = key; 
+        }
+        else{
+            tmp2 = first; 
+            while (key->count > tmp2->next->count && tmp2 != tmp){
+                tmp2 = tmp2->next; 
+            }
+            if (tmp2 == tmp){ //add key to end of sorted section
+                key->next = tmp->next; 
+                tmp->next = key;  
+                tmp = key; 
+            }
+            else{ //add key in between tmp2 and tmp2->next
+                key->next = tmp2->next; 
+                tmp2->next = key; 
+            }
+        }
+    }
+    last = tmp; 
 }
 
 // Convert the linked list to an array of nodes and return that array
 Node *LLSE::convertToArray() {
+    Node* arr = new Node[size]; 
+    Node* tmp = first;  
+    for (int j = 0; j< size ; j++){
+        arr[j] = *tmp; 
+        tmp = tmp->next; 
+    }
+    return arr;  
 }
 
 // For the quicksort - the partition
 int LLSE::partition(int beg,int end) {
+    int p = beg;
+    Node pivot= wordarr[p]; 
+    Node tmp;
+    for (int i = beg+1;i <= end; i++){
+        if (wordarr[i].count <= pivot.count){
+            p++;
+            tmp = wordarr[i];
+            wordarr[i] = wordarr[p];
+            wordarr[p] = tmp;
+        }
+    }
+    tmp= wordarr[p];
+    wordarr[p]= wordarr[beg];
+    wordarr[beg] =tmp;
+    return p;
 }
-
 
 // your recursive quicksort
 void LLSE::quickSort( int beg, int end) {
+    if (beg < end){
+        int j = partition(beg,end);
+        quickSort(beg, j-1); 
+        quickSort(j+1, end); 
+    }
 }
 
 //Take the linked list and create a binary heap
