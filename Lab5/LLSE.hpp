@@ -33,7 +33,8 @@ public:
 	int partition(int beg,int end);
 	Node *convertToArray();
 	void insertionSortLL();
-	Node *makeHeap();
+    void swap(Node &a, Node &b); 
+    void heapify(int heapSize);  
 	void heapSort();
 };
 

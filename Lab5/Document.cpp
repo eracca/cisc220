@@ -72,6 +72,10 @@ void Document::pickSort(int i) {  // 0 = insertionSort, 1 = QuickSort, 2= heapSo
         cout << endl; 
         cout << endl; 
         wordlist->heapSort();
+        for (int j = 0 ; j< wordlist->size ; j++){
+            cout << wordlist->wordarr[j].count <<
+            ":" << wordlist->wordarr[j].word << endl; 
+        }
     }
 }
 void Document::readFile() {

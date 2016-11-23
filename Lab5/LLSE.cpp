@@ -150,11 +150,35 @@ void LLSE::quickSort( int beg, int end) {
     }
 }
 
-//Take the linked list and create a binary heap
-Node *LLSE::makeHeap() {
+void LLSE::swap(Node &a, Node &b){
+    Node tmp = a;
+    a = b; 
+    b = tmp;
+    return;
 }
 
+void LLSE::heapify(int heapMax){
+   int i = (heapMax-1)/2; //position of last parent; 
+   while (i >= 0){
+       int left = 2*i+1;
+       int right = 2*i+2; 
+       if (wordarr[left].count > wordarr[i].count){
+           swap(wordarr[left], wordarr[i]); 
+       }
+       if (right <= heapMax && wordarr[right].count > wordarr[i].count){
+           swap(wordarr[right], wordarr[i]); 
+       }
+       i--;
+   }
+}
 //Sort the heap array using heapsort
-void LLSE::heapSort() {
+void LLSE::heapSort() { 
+    int heapMax = size-1 ;
+    wordarr = convertToArray(); 
+    for (int i = 0; i< size; i++){
+        heapify(heapMax); 
+        swap(wordarr[0], wordarr[heapMax]); 
+        heapMax--; 
+    }
+    return; 
 }
-
