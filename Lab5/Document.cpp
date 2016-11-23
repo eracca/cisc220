@@ -59,7 +59,6 @@ void Document::pickSort(int i) {  // 0 = insertionSort, 1 = QuickSort, 2= heapSo
         cout << endl; 
         cout << endl; 
         wordlist->wordarr= wordlist->convertToArray();
-        cout << "converted to array" << endl; 
         wordlist->quickSort(0,wordlist->size-1); 
         //for testing
         for (int j = 0 ; j< wordlist->size ; j++){
@@ -95,7 +94,6 @@ void Document::readFile() {
 			//cout << word << " removed" << endl;
 		}
 	}
-	wordlist->printLL();
 }
 
 
