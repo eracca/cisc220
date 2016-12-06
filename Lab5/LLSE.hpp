@@ -1,9 +1,9 @@
 /*
- * LLSE.hpp
- *
- *  Created on: Nov 8, 2016
- *      Author: Debra
- */
+* LLSE.hpp
+*
+*  Created on: Nov 8, 2016
+*      Author: Debra
+*/
 
 #ifndef LLSE_HPP_
 #define LLSE_HPP_
@@ -30,11 +30,11 @@ public:
 	void addAtFirst(string x);
 	void insertUnique(string w);
 	void quickSort(int x, int y);
-	int partition(int beg,int end);
-	void insertionSortLL(Node ** head, string w);
+	int partition(int beg, int end);
 	Node *convertToArray();
 	void insertionSortLL();
-	Node *makeHeap();
+	void swap(Node &a, Node &b);
+	void heapify(int heapSize);
 	void heapSort();
 };
 

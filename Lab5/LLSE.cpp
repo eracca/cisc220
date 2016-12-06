@@ -1,9 +1,9 @@
 /*
- * LLSE.cpp
- *
- *  Created on: Nov 8, 2016
- *      Author: Debra
- */
+* LLSE.cpp
+*
+*  Created on: Nov 8, 2016
+*      Author: Debra
+*/
 
 #include "Node.hpp"
 #include "LLSE.hpp"
@@ -19,7 +19,7 @@ LLSE::LLSE() {
 }
 LLSE::~LLSE() {
 	Node *tmp = first;
-	for(int i = 0; i < size; i++) {
+	for (int i = 0; i < size; i++) {
 		tmp = first->next;
 		delete first;
 		first = tmp;
@@ -29,7 +29,7 @@ LLSE::~LLSE() {
 void LLSE::printLL() {
 	Node *tmp = first;
 	while (tmp != NULL) {
-		cout << tmp->count <<":"<<tmp->word << endl;
+		cout << tmp->count << ":" << tmp->word << endl;
 		tmp = tmp->next;
 	}
 }
@@ -40,18 +40,16 @@ void LLSE::addFirst(string w) {
 	size = 1;
 }
 
-
-
 void LLSE::insertUnique(string w) {
 	Node *tmp = first;
 	if (tmp == NULL) {
 		addFirst(w);
 	}
 	else {
-		while (tmp != NULL && tmp->word < w)  {
+		while (tmp != NULL && tmp->word < w) {
 			tmp = tmp->next;
 		}
-		if ((tmp!= NULL) && (tmp->word == w)) {
+		if ((tmp != NULL) && (tmp->word == w)) {
 			tmp->count++;
 		}
 		else {
@@ -80,57 +78,107 @@ void LLSE::insertUnique(string w) {
 
 // Write an insertion Sort on the linked list (not an array, 
 // a linked list!
-void LLSE::insertionSortLL(struct Node**  head,string w) {
-
-	//list = empty so inserting as first element
-	if (*head == NULL) {
-		(*head)->word = w;
-		(*head)->next = NULL;
-	}
-	else {
-		struct Node* temp = *head;
-
-
-		if (w < temp->word) {
-			addAtFirst(w);
+void LLSE::insertionSortLL() {
+	Node* tmp = first;
+	Node* tmp2;
+	Node* key = first;
+	while (tmp->next != NULL) {
+		//take key out. tmp holds place of last sorted node
+		key = tmp->next;
+		tmp->next = key->next; //need to handle last 
+							   //insert key in order
+							   //put key at front if it belongs there
+		if (key->count < first->count) {
+			key->next = first;
+			first = key;
 		}
-		while (temp->next != NULL) {
-			if (w > temp->next->word) {
-				temp = temp->next;
+		else {
+			tmp2 = first;
+			while (key->count > tmp2->next->count && tmp2 != tmp) {
+				tmp2 = tmp2->next;
 			}
-			else {
-				struct Node* nNode;
-				nNode->word = w;
-				nNode->next = temp->next;
-				temp->next = nNode;
+			if (tmp2 == tmp) { //add key to end of sorted section
+				key->next = tmp->next;
+				tmp->next = key;
+				tmp = key;
+			}
+			else { //add key in between tmp2 and tmp2->next
+				key->next = tmp2->next;
+				tmp2->next = key;
 			}
 		}
-
-		//when data is added to the end of linked list
-		if (w > temp->word) {
-			last->word = w;
-		}
 	}
+	last = tmp;
 }
 
 // Convert the linked list to an array of nodes and return that array
 Node *LLSE::convertToArray() {
+	Node* arr = new Node[size];
+	Node* tmp = first;
+	for (int j = 0; j< size; j++) {
+		arr[j] = *tmp;
+		tmp = tmp->next;
+	}
+	return arr;
 }
 
 // For the quicksort - the partition
-int LLSE::partition(int beg,int end) {
+int LLSE::partition(int beg, int end) {
+	int p = beg;
+	Node pivot = wordarr[p];
+	Node tmp;
+	for (int i = beg + 1; i <= end; i++) {
+		if (wordarr[i].count <= pivot.count) {
+			p++;
+			tmp = wordarr[i];
+			wordarr[i] = wordarr[p];
+			wordarr[p] = tmp;
+		}
+	}
+	tmp = wordarr[p];
+	wordarr[p] = wordarr[beg];
+	wordarr[beg] = tmp;
+	return p;
 }
-
 
 // your recursive quicksort
-void LLSE::quickSort( int beg, int end) {
+void LLSE::quickSort(int beg, int end) {
+	if (beg < end) {
+		int j = partition(beg, end);
+		quickSort(beg, j - 1);
+		quickSort(j + 1, end);
+	}
 }
 
-//Take the linked list and create a binary heap
-Node *LLSE::makeHeap() {
+void LLSE::swap(Node &a, Node &b) {
+	Node tmp = a;
+	a = b;
+	b = tmp;
+	return;
 }
 
+void LLSE::heapify(int heapMax) {
+	int i = (heapMax - 1) / 2; //position of last parent; 
+	while (i >= 0) {
+		int left = 2 * i + 1;
+		int right = 2 * i + 2;
+		if (wordarr[left].count > wordarr[i].count) {
+			swap(wordarr[left], wordarr[i]);
+		}
+		if (right <= heapMax && wordarr[right].count > wordarr[i].count) {
+			swap(wordarr[right], wordarr[i]);
+		}
+		i--;
+	}
+}
 //Sort the heap array using heapsort
 void LLSE::heapSort() {
+	int heapMax = size - 1;
+	wordarr = convertToArray();
+	for (int i = 0; i< size; i++) {
+		heapify(heapMax);
+		swap(wordarr[0], wordarr[heapMax]);
+		heapMax--;
+	}
+	return;
 }
-

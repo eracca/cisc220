@@ -12,6 +12,7 @@
 #include <string>
 
 class Document {
+public:
 	string filename;
 	LLSE *wordlist;
 	string fw[48]={	"a",
@@ -65,7 +66,6 @@ class Document {
 					"you"
 	};
 	int fwlen = 48;
-public:
 	Document(string f);
 	string strip(string w);
 	bool checkFunctionWords(string w);

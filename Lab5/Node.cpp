@@ -10,17 +10,18 @@
 #include <string>
 using namespace std;
 
-Node::Node(string s) {
+Node::Node(string w) {
 	count = 1;
 	next = NULL;
 	prev = NULL;
-	word = s;
+	word = w;
 }
 Node::Node() {
 	count = 1;
 	next = NULL;
 	prev = NULL;
 	word = nullptr;
+	word = "";
 }
 
 

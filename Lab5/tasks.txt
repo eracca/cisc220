@@ -1,0 +1,18 @@
+Finish sorts by 11/21
+quicksort - Liz
+insertionsort - Allan
+heapsort - whoever finishes first
+
+project due 12/9
+decide soon
+
+
+https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+
+idea: 2D implementation of Djikstra's algorithm.  
+Node class: 
+each node contains a linked list of edges
+Edge class: 
+has a a source node and a sink node and a cost (usually length)
+Djikstra class: 
+
