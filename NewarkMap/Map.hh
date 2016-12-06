@@ -6,12 +6,13 @@
 
 #include <string>
 #include "EdgeLL.hh"
+#include "NodeLL.hh"
 #include "Node.hh"
 
 class Map{
     string inFile; 
-    Node* nodeList; 
-    Node* visitList; 
+    NodeLL* nodeList; 
+    NodeLL* visitList; 
 public:
     Map(string infile);
     ~Map();

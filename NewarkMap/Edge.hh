@@ -14,6 +14,7 @@ class Node;
 
 class Edge{
     string objectID;
+    string name; 
     Node* fNode;
     Node* tNode;
     int length;

@@ -13,4 +13,5 @@ Node::Node(string id){
     EdgeLL* edgeFrom = new EdgeLL(); 
     int tentDist = -1; 
     bool isSource = false;
+    next = NULL;
 }

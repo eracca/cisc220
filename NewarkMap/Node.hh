@@ -12,10 +12,12 @@ using namespace std;
 class EdgeLL;
 
 class Node{
+    friend class NodeLL;
     string nodeID;
     EdgeLL* edgeFrom;
     int tentDist;
     bool isSource; 
+    Node* next; 
 public:
     Node(string id);
 };
