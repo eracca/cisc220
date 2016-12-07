@@ -9,6 +9,7 @@
 class Edge;
 
 class EdgeLL{
+    friend class Node;
     Edge* first; 
     Edge* last;
     int size; 
@@ -17,6 +18,7 @@ public:
     ~EdgeLL(); 
     void addFirst(Edge* e); 
     void addEdge(Edge* e);
+    void printEdges(); 
 };
 
 #endif

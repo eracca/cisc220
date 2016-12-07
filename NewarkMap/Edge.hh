@@ -13,6 +13,7 @@ using namespace std;
 class Node; 
 
 class Edge{
+    friend class EdgeLL;
     string objectID;
     string name; 
     Node* fNode;
@@ -20,7 +21,7 @@ class Edge{
     int length;
     Edge* next; 
 public:
-    Edge(string id, Node* fro, Node* to, int l); 
+    Edge(string id, string n, Node* fro, Node* to, int l); 
     ~Edge(); 
 };
 

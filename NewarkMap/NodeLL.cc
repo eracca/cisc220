@@ -4,10 +4,11 @@
 #include "NodeLL.hh"
 #include "Node.hh"
 #include <string>
+#include <iostream>
 
 using namespace std;  
 
-NodeLL::Node(){
+NodeLL::NodeLL(){
     first = NULL;
     last = NULL;
     size = 0; 
@@ -21,7 +22,7 @@ Node* NodeLL::addFirst(string id){
 }
 Node* NodeLL::addNode(string id){
     if (first == NULL){
-        addFirst(id);
+        return addFirst(id);
     }
     else{
         Node* tmp = first;  
@@ -38,3 +39,16 @@ Node* NodeLL::addNode(string id){
         return last;  
     }
 }
+
+void NodeLL::printNodeLL(){
+    if (first == NULL){
+        cout << "nothing here" << endl;  
+        return;
+    }
+    Node* tmp = first; 
+    while (tmp != NULL){
+        tmp->edgeFrom->printEdges();
+        tmp = tmp->next; 
+    }
+}
+

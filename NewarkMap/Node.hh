@@ -13,13 +13,14 @@ class EdgeLL;
 
 class Node{
     friend class NodeLL;
-    string nodeID;
-    EdgeLL* edgeFrom;
+    friend class Edge;
     int tentDist;
     bool isSource; 
     Node* next; 
 public:
     Node(string id);
+    EdgeLL* edgeFrom;
+    string nodeID;
 };
 
 #endif

@@ -7,14 +7,16 @@
 #include "EdgeLL.hh"
 #include "NodeLL.hh"
 #include "Node.hh"
+#include <string>
 
 using namespace std;
 
 int main(){
-    cout << "Hi" << endl; 
-    NodeLL nodeList = new NodeLL(); 
+    NodeLL* nodeList = new NodeLL();
     Node* fro = nodeList->addNode("169963187334");
     Node* to = nodeList->addNode("170055187289");
-    Edge* e = new Edge("365", "MAIN", from, to, 102); 
+    Edge* e = new Edge("365", "MAIN", fro, to, 102); 
+    fro->edgeFrom->addEdge(e); 
+    nodeList->printNodeLL();
     return 0; 
 }

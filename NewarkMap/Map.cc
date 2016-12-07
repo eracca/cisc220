@@ -19,5 +19,8 @@ void Map::buildMap(){
     //make a new edge in the fromNode EdgeLL
     //if not one way, make edge opposite direction
 }
-EdgeLL Map::Djikstra(Node* source){
+void readCSV(){
+
+}
+EdgeLL* Map::Djikstra(Node* source){
 }

@@ -14,6 +14,6 @@ Edge::Edge(string id, string n, Node* fro, Node* to, int l){
     fNode = fro; 
     tNode = to; 
     length = l; 
-    next = NULL: 
+    next = NULL;
 }
 

@@ -9,9 +9,9 @@
 using namespace std; 
 
 Node::Node(string id){
-    string nodeID = id; 
-    EdgeLL* edgeFrom = new EdgeLL(); 
-    int tentDist = -1; 
-    bool isSource = false;
+    nodeID = id; 
+    edgeFrom = new EdgeLL(); 
+    tentDist = -1; 
+    isSource = false;
     next = NULL;
-}
+};

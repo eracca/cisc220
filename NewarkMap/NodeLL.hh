@@ -17,6 +17,7 @@ public:
     NodeLL();  
     Node* addFirst(string id);
     Node* addNode(string id); 
+    void printNodeLL();
 };
 
 #endif
