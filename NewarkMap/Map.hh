@@ -5,25 +5,21 @@
 #define MAP_HH
 
 #include <string>
+#include <vector>
 #include "EdgeLL.hh"
 #include "NodeLL.hh"
 #include "Node.hh"
-#include <vector>
-#include <typeinfo>
-
-typedef vector< vector<string> > csvVector; 
 
 class Map{
-    string inFile; 
-    csvVector csvData; 
+    string filename; 
     NodeLL* nodeList; 
     NodeLL* visitList; 
 public:
     Map(string infile);
     ~Map();
     void buildMap(); 
-    void readCSV(); 
     EdgeLL* Djikstra(Node* source);  
+    void split(const string &s, char delim, vector <string> &elems);
 };
 
 #endif
