@@ -16,6 +16,7 @@ void Map::buildMap(){
     //get line
     //pull out each line and get the toNode and the fromNode data
     //if fromNode not in list of nodes, make a new node
+	if nodelist
     //make a new edge in the fromNode EdgeLL
     //if not one way, make edge opposite direction
 }
