@@ -14,9 +14,6 @@ EdgeLL::EdgeLL(){
     size = 0; 
 }
 
-EdgeLL::~EdgeLL(){
-}
-
 void EdgeLL::addFirst(Edge* e){
     first = e;
     last = e; 
@@ -53,10 +50,8 @@ void EdgeLL::updateDist(){
         if (tmp->tNode->tentDist == -1 || 
             (tmp->fNode->tentDist + tmp->length) < tmp->tNode->tentDist){
             tmp->tNode->tentDist = tmp->fNode->tentDist + tmp->length;
-            cout << "new path edge " <<tmp->tNode->pathEdge->objectID << endl; 
+            tmp->tNode->pathEdge = tmp; 
         }
         tmp = tmp->next; 
-
     }
 }
-

@@ -15,7 +15,6 @@ class Map{
     Node* source; 
 public:
     Map(string infile);
-    ~Map();
     void buildMap(); 
     void Djikstra(Node* source);  
     void split(const string &s, char delim, vector <string> &elems);

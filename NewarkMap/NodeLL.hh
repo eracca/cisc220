@@ -20,7 +20,7 @@ public:
     Node* removeNode(Node* n); 
     void printNodeLL();
     Node* findMin(); 
-    Node* randNode(); 
+    Node* findNode(string n); 
     int size; 
 };
 

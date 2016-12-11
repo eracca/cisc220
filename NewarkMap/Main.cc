@@ -9,27 +9,24 @@
 #include "NodeLL.hh"
 #include "Node.hh"
 #include <string>
-#include <time.h>
 
 using namespace std;
 
 int main(){
+    //build map using csv data file
     Map* m = new Map("mapdata.csv"); 
     cout << "read map" << endl; 
-    //generate random source nodes and 3 target nodes for testing
-    Node* source = m->nodeList->randNode(); 
-    Node* t1 =  m->nodeList->randNode();
-    Node* t2 =  m->nodeList->randNode();
-    Node* t3 =  m->nodeList->randNode();
-    cout << source->nodeID << endl; 
-    cout << "made nodes" << endl;
 
+    //select node as source node and 3 target nodes to test
+    Node* source = m->nodeList->findNode("170139186518"); 
+    Node* t1 = m->nodeList->findNode("171635186792"); 
+    Node* t2 = m->nodeList->findNode("170259185821"); 
+    Node* t3 = m->nodeList->findNode("171699187388"); 
+
+    //run Djikstra on the source
     m->Djikstra(source); 
 
-    cout << "did Djikstra" <<  endl; 
-    m->nodeList->printNodeLL(); 
-    m->visitList
-
+    //find path to targets, print paths
     EdgeLL* p1 = m->findPath(t1);
     EdgeLL* p2 = m->findPath(t2);
     EdgeLL* p3 = m->findPath(t3);

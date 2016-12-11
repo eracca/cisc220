@@ -23,7 +23,6 @@ class Edge{
     Edge* next; 
 public:
     Edge(string id, string n, Node* fro, Node* to, int l); 
-    ~Edge(); 
 };
 
 #endif

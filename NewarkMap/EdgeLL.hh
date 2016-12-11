@@ -15,7 +15,6 @@ class EdgeLL{
     int size; 
 public:
     EdgeLL();
-    ~EdgeLL(); 
     void addFirst(Edge* e); 
     void addEdge(Edge* e);
     void printEdges(); 

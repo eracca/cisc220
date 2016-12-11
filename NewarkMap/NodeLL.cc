@@ -46,6 +46,7 @@ void NodeLL::addNode(Node* n){
     if (size == 0){
         first = n;
         last = n; 
+        n->next = NULL;  
         size++; 
         return;  
     }
@@ -80,6 +81,8 @@ Node* NodeLL::removeNode(Node* n){
 }
     
 Node* NodeLL::findMin(){
+    //find unvisited node with min tentative distance
+    //-1 should be treated as infinity
     Node* min = first; 
     while (min != NULL && min->tentDist == -1){
         min=min->next; 
@@ -109,17 +112,13 @@ void NodeLL::printNodeLL(){
     }
 }
 
-Node* NodeLL::randNode(){
-    srand(time(NULL)); 
-    int i = 0; 
-    int r = rand() % size; 
+Node* NodeLL::findNode(string n){
     Node* tmp = first; 
-    while (tmp->next != NULL){
-        if (i== r){
-            return tmp; 
+    while (tmp != NULL){
+        if (tmp->nodeID == n){
+            return tmp;
         }
-        i++; 
-        tmp = tmp->next;  
+        tmp = tmp->next; 
     }
+    return NULL;
 }
-

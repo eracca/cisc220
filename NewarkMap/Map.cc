@@ -56,7 +56,8 @@ void Map::Djikstra(Node* s){
     Node* visitNode = source; 
     while (nodeList->size != 0){
         visitNode->edgeFrom->updateDist();
-        visitList->addNode(nodeList->removeNode(visitNode));
+        Node* tmp = nodeList->removeNode(visitNode);
+        visitList->addNode(tmp); 
         visitNode = nodeList->findMin(); 
         if (visitNode == NULL){
             return;
@@ -72,9 +73,7 @@ EdgeLL* Map::findPath(Node* target){
     }
     while (e != NULL){
         path->addEdge(e); 
-        cout << "id: " << e->objectID << " fNode: " << e->fNode->nodeID 
-        << " tNode: " << e->tNode->nodeID << endl;
-        e = e->tNode->pathEdge;
+        e = e->fNode->pathEdge;
     }
     return path; 
 }

@@ -6,8 +6,6 @@
 #include "Edge.hh"
 #include "Node.hh"
 
-//using namespace std;  
-
 Edge::Edge(string id, string n, Node* fro, Node* to, int l){
     objectID = id; 
     name = n; 
