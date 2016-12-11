@@ -14,4 +14,5 @@ Node::Node(string id){
     tentDist = -1; 
     isSource = false;
     next = NULL;
+    pathEdge = NULL;  
 };

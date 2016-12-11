@@ -5,6 +5,8 @@
 #include "Node.hh"
 #include <string>
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 using namespace std;  
 
@@ -40,6 +42,61 @@ Node* NodeLL::addNode(string id){
     }
 }
 
+void NodeLL::addNode(Node* n){
+    if (size == 0){
+        first = n;
+        last = n; 
+        size++; 
+        return;  
+    }
+    n->next = first; 
+    first = n; 
+    size++;
+    return;  
+}
+
+Node* NodeLL::removeNode(Node* n){
+    if (first == n && last == n){
+        first = NULL;
+        last = NULL;
+        size--; 
+        return n;
+    }
+    if (n == first){
+        first = n->next;  
+        size--; 
+        return n; 
+    }
+    Node* tmp = first;
+    while (tmp->next != n){
+        tmp = tmp->next; 
+    }
+    tmp->next = n->next;  
+    size--; 
+    if (n == last){
+        last = tmp; 
+    }
+    return n; 
+}
+    
+Node* NodeLL::findMin(){
+    Node* min = first; 
+    while (min != NULL && min->tentDist == -1){
+        min=min->next; 
+    }
+    if (min == NULL){
+        return NULL;
+    }
+    Node* tmp = min; 
+    while (tmp->next != NULL){
+        tmp = tmp->next; 
+        if (tmp->tentDist != -1 && tmp->tentDist < min->tentDist){
+            min =  tmp; 
+        }
+    }
+    return min; 
+}
+
 void NodeLL::printNodeLL(){
     if (first == NULL){
         cout << "nothing here" << endl;  
@@ -49,6 +106,20 @@ void NodeLL::printNodeLL(){
     while (tmp != NULL){
         tmp->edgeFrom->printEdges();
         tmp = tmp->next; 
+    }
+}
+
+Node* NodeLL::randNode(){
+    srand(time(NULL)); 
+    int i = 0; 
+    int r = rand() % size; 
+    Node* tmp = first; 
+    while (tmp->next != NULL){
+        if (i== r){
+            return tmp; 
+        }
+        i++; 
+        tmp = tmp->next;  
     }
 }
 

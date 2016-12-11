@@ -12,12 +12,16 @@ using namespace std;
 class NodeLL{
     Node* first;
     Node* last; 
-    int size; 
 public:
     NodeLL();  
     Node* addFirst(string id);
     Node* addNode(string id); 
+    void addNode(Node* n); 
+    Node* removeNode(Node* n); 
     void printNodeLL();
+    Node* findMin(); 
+    Node* randNode(); 
+    int size; 
 };
 
 #endif

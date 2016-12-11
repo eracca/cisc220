@@ -12,14 +12,16 @@
 
 class Map{
     string filename; 
-    NodeLL* nodeList; 
-    NodeLL* visitList; 
+    Node* source; 
 public:
     Map(string infile);
     ~Map();
     void buildMap(); 
-    EdgeLL* Djikstra(Node* source);  
+    void Djikstra(Node* source);  
     void split(const string &s, char delim, vector <string> &elems);
+    EdgeLL* findPath(Node* target); 
+    NodeLL* nodeList; 
+    NodeLL* visitList; 
 };
 
 #endif

@@ -47,3 +47,16 @@ void EdgeLL::printEdges(){
     }
 }
 
+void EdgeLL::updateDist(){
+    Edge* tmp = first;  
+    while (tmp != NULL){
+        if (tmp->tNode->tentDist == -1 || 
+            (tmp->fNode->tentDist + tmp->length) < tmp->tNode->tentDist){
+            tmp->tNode->tentDist = tmp->fNode->tentDist + tmp->length;
+            cout << "new path edge " <<tmp->tNode->pathEdge->objectID << endl; 
+        }
+        tmp = tmp->next; 
+
+    }
+}
+

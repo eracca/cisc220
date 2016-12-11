@@ -48,5 +48,33 @@ void Map::split(const string &s, char delim, vector <string> &elems){
     }
 }
 
-EdgeLL* Map::Djikstra(Node* source){
+void Map::Djikstra(Node* s){
+    source = s;
+    visitList = new NodeLL(); 
+    source->isSource = true; 
+    source->tentDist = 0;  
+    Node* visitNode = source; 
+    while (nodeList->size != 0){
+        visitNode->edgeFrom->updateDist();
+        visitList->addNode(nodeList->removeNode(visitNode));
+        visitNode = nodeList->findMin(); 
+        if (visitNode == NULL){
+            return;
+        }
+    } 
+}
+
+EdgeLL* Map::findPath(Node* target){
+    EdgeLL* path = new EdgeLL();
+    Edge* e = target->pathEdge; 
+    if (e == NULL){
+        cout << "e is null " << endl;
+    }
+    while (e != NULL){
+        path->addEdge(e); 
+        cout << "id: " << e->objectID << " fNode: " << e->fNode->nodeID 
+        << " tNode: " << e->tNode->nodeID << endl;
+        e = e->tNode->pathEdge;
+    }
+    return path; 
 }

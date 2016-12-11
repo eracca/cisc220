@@ -19,6 +19,8 @@ public:
     void addFirst(Edge* e); 
     void addEdge(Edge* e);
     void printEdges(); 
+    void updateDist(); 
+    
 };
 
 #endif

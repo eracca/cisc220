@@ -14,6 +14,7 @@ class Node;
 
 class Edge{
     friend class EdgeLL;
+    friend class Map;
     string objectID;
     string name; 
     Node* fNode;
